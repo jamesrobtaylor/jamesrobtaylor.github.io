@@ -40,7 +40,7 @@ function displayCompliment() {
     loading = true;
     document.getElementById("compliment").innerHTML = "Generating.";
     document.getElementById("compliment").style.color = "white";
-    document.getElementById("compliment").style.fontSize = "18px";
+    document.getElementById("compliment").style.fontSize = "20px";
     loadingInterval = setInterval(() => {
       dots++;
       document.getElementById("compliment").innerHTML =
@@ -197,7 +197,7 @@ function displayCompliment() {
       }
 </style>
 
-<body onload="document.getElementById('compliment').innerHTML = 'Click the heart to generate a message'; document.getElementById('compliment').style.color = 'white';">
+<body onload="document.getElementById('compliment').innerHTML = 'Click the heart to generate a message'; document.getElementById('compliment').style.color = 'white'; document.getElementById('compliment').style.fontSize = '20px';">
   <h1 id="title">Valentines Message For Ellie from James</h1>
   <h3 id="title2">Click one of the photos for 🔊</h3>
   <h1 id="compliment"></h1>
