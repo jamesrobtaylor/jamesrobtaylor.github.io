@@ -40,6 +40,7 @@ function displayCompliment() {
     loading = true;
     document.getElementById("compliment").innerHTML = "Generating.";
     document.getElementById("compliment").style.color = "white";
+    document.getElementById("compliment").style.fontSize = "10px";
     loadingInterval = setInterval(() => {
       dots++;
       document.getElementById("compliment").innerHTML =
