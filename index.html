@@ -222,13 +222,9 @@ function displayCompliment() {
 
 ...
 
-	<script>
+<script>
   function displayIframe(src) {
-    var video = document.getElementById("video");
-    video.src = src;
-    video.addEventListener('load', function() {
-      video.play();
-    });
+    document.getElementById("video").src = src + "?autoplay=1";
     var iframeContainer = document.getElementById("iframeContainer");
     iframeContainer.style.display = "block";
   }
