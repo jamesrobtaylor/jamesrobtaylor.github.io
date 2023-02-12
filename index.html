@@ -216,15 +216,14 @@ function displayCompliment() {
 ...
 
 <div id="iframeContainer" style="display: none;">
-    <iframe id="video" width="1" height="1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen autoplay muted></iframe>
-
+  <iframe id="video" width="560" height="315" frameborder="0" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 </div>
 
 ...
 
 <script>
   function displayIframe(src) {
-    document.getElementById("video").src = src + "?autoplay=1";
+    document.getElementById("video").src = src;
     var iframeContainer = document.getElementById("iframeContainer");
     iframeContainer.style.display = "block";
   }
