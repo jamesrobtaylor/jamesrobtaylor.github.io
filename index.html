@@ -250,8 +250,8 @@ function displayCompliment() {
     <div id="couplePicture5" onclick="displayIframe('https://www.youtube.com/embed/-mmlQ2HPfXE')"></div>
     <div id="couplePicture6" onclick="displayIframe('https://www.youtube.com/embed/HzsWrhlWzp8')"></div>
 <div class="arrow-container">
-  <button class="arrow arrow-left" onclick="scrollLeft()"></button>
-  <button class="arrow arrow-right" onclick="scrollRight()"></button>
+  <button class="arrow arrow-left" onclick="displaySet1()"></button>
+  <button class="arrow arrow-right" onclick="displaySet2()"></button>
     </div>
 	</div>
 </div>
@@ -280,28 +280,22 @@ document.getElementById("couplePicture").style.display = "inline-block";
 document.getElementById("couplePicture2").style.display = "inline-block";
 document.getElementById("couplePicture3").style.display = "inline-block";
 
-function scrollRight() {
-  if (currentSet == 1) {
-    currentSet = 2;
-    document.getElementById("couplePicture").style.display = "none";
-    document.getElementById("couplePicture2").style.display = "none";
-    document.getElementById("couplePicture3").style.display = "none";
-    document.getElementById("couplePicture4").style.display = "inline-block";
-    document.getElementById("couplePicture5").style.display = "inline-block";
-    document.getElementById("couplePicture6").style.display = "inline-block";
-  }
+function displaySet1() {
+  document.getElementById("couplePicture4").style.display = "none";
+  document.getElementById("couplePicture5").style.display = "none";
+  document.getElementById("couplePicture6").style.display = "none";
+  document.getElementById("couplePicture").style.display = "inline-block";
+  document.getElementById("couplePicture2").style.display = "inline-block";
+  document.getElementById("couplePicture3").style.display = "inline-block";
 }
 
-function scrollLeft() {
-  if (currentSet == 2) {
-    currentSet = 1;
-    document.getElementById("couplePicture4").style.display = "none";
-    document.getElementById("couplePicture5").style.display = "none";
-    document.getElementById("couplePicture6").style.display = "none";
-    document.getElementById("couplePicture").style.display = "inline-block";
-    document.getElementById("couplePicture2").style.display = "inline-block";
-    document.getElementById("couplePicture3").style.display = "inline-block";
-  }
+function displaySet2() {
+  document.getElementById("couplePicture").style.display = "none";
+  document.getElementById("couplePicture2").style.display = "none";
+  document.getElementById("couplePicture3").style.display = "none";
+  document.getElementById("couplePicture4").style.display = "inline-block";
+  document.getElementById("couplePicture5").style.display = "inline-block";
+  document.getElementById("couplePicture6").style.display = "inline-block";
 }
 </script>
 </body>
