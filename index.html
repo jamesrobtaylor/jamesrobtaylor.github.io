@@ -180,7 +180,6 @@ function displayCompliment() {
 }
 
 #couplePicture {
-  display: inline-block;
   margin: 0 auto;
   width: 300px;
   height: 300px;
@@ -190,7 +189,6 @@ function displayCompliment() {
 }
 
 #couplePicture2 {
-  display: inline-block;
   margin: 0 auto;
   width: 300px;
   height: 300px;
@@ -200,7 +198,6 @@ function displayCompliment() {
 }
 
 #couplePicture3 {
-  display: inline-block;
   margin: 0 auto;
   width: 300px;
   height: 300px;
@@ -209,34 +206,28 @@ function displayCompliment() {
   background-size: cover;
 }
 	    #couplePicture4 {
-  display: none;
   margin: 0 auto;
   width: 300px;
   height: 300px;
   border-radius: 50%;
   background: url('https://i.imgur.com/fYKbuHp.jpg');
   background-size: cover;
-  visibility: hidden;
 }
 	    #couplePicture5 {
-  display: none;
   margin: 0 auto;
   width: 300px;
   height: 300px;
   border-radius: 50%;
   background: url('https://i.imgur.com/Us2J63r.jpg');
   background-size: cover;
-  visibility: hidden;
 }
 	    #couplePicture6 {
-  display: none;
   margin: 0 auto;
   width: 300px;
   height: 300px;
   border-radius: 50%;
   background: url('https://i.imgur.com/ujLex4T.jpg');
   background-size: cover;
-  visibility: hidden;
 }
       body {
         background-color: pink;
@@ -280,44 +271,37 @@ function displayCompliment() {
     var iframeContainer = document.getElementById("iframeContainer");
     iframeContainer.style.display = "block";
   }
-	function scrollLeft() {
-  const pictures = document.getElementsByClassName("couplePictures")[0].getElementsByTagName("img");
-  const firstPicture = pictures[0];
-  const lastPicture = pictures[pictures.length - 1];
-
-  if (firstPicture.style.display === "block") {
-    firstPicture.style.display = "none";
-    lastPicture.style.display = "block";
-  } else {
-    for (let i = 1; i < pictures.length; i++) {
-      if (pictures[i].style.display === "block") {
-        pictures[i].style.display = "none";
-        pictures[i - 1].style.display = "block";
-        break;
-      }
-    }
-  }
-}
+var currentSet = 1;
+document.getElementById("couplePicture4").style.display = "none";
+document.getElementById("couplePicture5").style.display = "none";
+document.getElementById("couplePicture6").style.display = "none";
+document.getElementById("couplePicture").style.display = "inline-block";
+document.getElementById("couplePicture2").style.display = "inline-block";
+document.getElementById("couplePicture3").style.display = "inline-block";
 
 function scrollRight() {
-  const pictures = document.getElementsByClassName("couplePictures")[0].getElementsByTagName("img");
-  const firstPicture = pictures[0];
-  const lastPicture = pictures[pictures.length - 1];
-
-  if (lastPicture.style.display === "block") {
-    lastPicture.style.display = "none";
-    firstPicture.style.display = "block";
-  } else {
-    for (let i = 0; i < pictures.length - 1; i++) {
-      if (pictures[i].style.display === "block") {
-        pictures[i].style.display = "none";
-        pictures[i + 1].style.display = "block";
-        break;
-      }
-    }
+  if (currentSet == 1) {
+    currentSet = 2;
+    document.getElementById("couplePicture").style.display = "none";
+    document.getElementById("couplePicture2").style.display = "none";
+    document.getElementById("couplePicture3").style.display = "none";
+    document.getElementById("couplePicture4").style.display = "inline-block";
+    document.getElementById("couplePicture5").style.display = "inline-block";
+    document.getElementById("couplePicture6").style.display = "inline-block";
   }
 }
 
+function scrollLeft() {
+  if (currentSet == 2) {
+    currentSet = 1;
+    document.getElementById("couplePicture4").style.display = "none";
+    document.getElementById("couplePicture5").style.display = "none";
+    document.getElementById("couplePicture6").style.display = "none";
+    document.getElementById("couplePicture").style.display = "inline-block";
+    document.getElementById("couplePicture2").style.display = "inline-block";
+    document.getElementById("couplePicture3").style.display = "inline-block";
+  }
+}
 </script>
 </body>
 </html>
