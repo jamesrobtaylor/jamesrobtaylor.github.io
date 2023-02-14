@@ -150,10 +150,22 @@ function displayCompliment() {
         border: 0;
         cursor: pointer;
       }
-	    .arrow {
-  text-align: center;
-  font-size: 36px;
-  line-height: 1;
+.arrow {
+  width: 50px;
+  height: 50px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  background-size: contain;
+}
+
+.arrow-left {
+  background-image: url('left-arrow.svg');
+}
+
+.arrow-right {
+  background-image: url('right-arrow.svg');
 }
 
 .couplePictures {
@@ -256,6 +268,7 @@ function displayCompliment() {
 	<div id="couplePicture5" onclick="displayIframe('https://www.youtube.com/embed/adWzAQRs1rc')">
 	</div>
 	<div id="couplePicture6" onclick="displayIframe('https://www.youtube.com/embed/adWzAQRs1rc')">
+<div class="arrow-container">
   <button id="left-arrow" onclick="scrollLeft()">&#8249;</button>
   <button id="right-arrow" onclick="scrollRight()">&#8250;</button>
     </div>
