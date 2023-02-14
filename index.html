@@ -154,7 +154,7 @@ function displayCompliment() {
 .arrow {
   width: 50px;
   height: 50px;
-  background-color: white;
+  background-color: transparent;
   border: none;
   cursor: pointer;
   outline: none;
@@ -258,20 +258,15 @@ function displayCompliment() {
   </div>
 <div id="orca"></div>
 <div class="couplePictures">
-    <div id="couplePicture" onclick="displayIframe('https://www.youtube.com/embed/tRDKELF-xE0')">
-    </div>
-    <div id="couplePicture2" onclick="displayIframe('https://www.youtube.com/embed/8eQtmVajhxQ')">
-    </div>
-    <div id="couplePicture3" onclick="displayIframe('https://www.youtube.com/embed/adWzAQRs1rc')">
-	</div>
-	<div id="couplePicture4" onclick="displayIframe('https://www.youtube.com/embed/Y5vLH5YVZLw')">
-	</div>
-	<div id="couplePicture5" onclick="displayIframe('https://www.youtube.com/embed/-mmlQ2HPfXE')">
-	</div>
-	<div id="couplePicture6" onclick="displayIframe('https://www.youtube.com/embed/HzsWrhlWzp8')">
+    <div id="couplePicture" onclick="displayIframe('https://www.youtube.com/embed/tRDKELF-xE0')"></div>
+    <div id="couplePicture2" onclick="displayIframe('https://www.youtube.com/embed/8eQtmVajhxQ')"></div>
+    <div id="couplePicture3" onclick="displayIframe('https://www.youtube.com/embed/adWzAQRs1rc')"></div>
+    <div id="couplePicture4" onclick="displayIframe('https://www.youtube.com/embed/Y5vLH5YVZLw')"></div>
+    <div id="couplePicture5" onclick="displayIframe('https://www.youtube.com/embed/-mmlQ2HPfXE')"></div>
+    <div id="couplePicture6" onclick="displayIframe('https://www.youtube.com/embed/HzsWrhlWzp8')"></div>
 <div class="arrow-container">
-  <button id="left-arrow" onclick="scrollLeft()">&#8249;</button>
-  <button id="right-arrow" onclick="scrollRight()">&#8250;</button>
+  <button class="arrow arrow-left" onclick="scrollLeft()"></button>
+  <button class="arrow arrow-right" onclick="scrollRight()"></button>
     </div>
 	</div>
 </div>
