@@ -155,7 +155,7 @@ function displayCompliment() {
   text-align: center;
 }
 @media (max-width: 375px) {
-  #couplePicture, #couplePicture2, #couplePicture3 {
+  #couplePicture, #couplePicture2, #couplePicture3, #couplePicture4, #couplePicture5, #couplePicture6 {
     width: 40%;
     height: 50%;
   }
@@ -193,6 +193,36 @@ function displayCompliment() {
   background: url('https://i.imgur.com/If8rEA8.jpg');
   background-size: cover;
 }
+	    #couplePicture4 {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  display: inline-block;
+  background: url('https://i.imgur.com/fYKbuHp.jpg');
+  background-size: cover;
+}
+	    #couplePicture5 {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  display: inline-block;
+  background: url('https://i.imgur.com/Us2J63r.jpg');
+  background-size: cover;
+}
+	    #couplePicture6 {
+  display: block;
+  margin: 0 auto;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  display: inline-block;
+  background: url('https://i.imgur.com/ujLex4T.jpg');
+  background-size: cover;
+}
       body {
         background-color: pink;
       }
@@ -212,6 +242,14 @@ function displayCompliment() {
     <div id="couplePicture2" onclick="displayIframe('https://www.youtube.com/embed/8eQtmVajhxQ')">
     </div>
     <div id="couplePicture3" onclick="displayIframe('https://www.youtube.com/embed/adWzAQRs1rc')">
+	</div>
+	<div id="couplePicture4" onclick="displayIframe('https://www.youtube.com/embed/adWzAQRs1rc')">
+	</div>
+	<div id="couplePicture5" onclick="displayIframe('https://www.youtube.com/embed/adWzAQRs1rc')">
+	</div>
+	<div id="couplePicture6" onclick="displayIframe('https://www.youtube.com/embed/adWzAQRs1rc')">
+  <button id="left-arrow" onclick="scrollLeft()">&#8249;</button>
+  <button id="right-arrow" onclick="scrollRight()">&#8250;</button>
     </div>
 </div>
 
@@ -230,5 +268,43 @@ function displayCompliment() {
     var iframeContainer = document.getElementById("iframeContainer");
     iframeContainer.style.display = "block";
   }
+	function scrollLeft() {
+  const pictures = document.getElementsByClassName("couplePictures")[0].getElementsByTagName("img");
+  const firstPicture = pictures[0];
+  const lastPicture = pictures[pictures.length - 1];
+
+  if (firstPicture.style.display === "block") {
+    firstPicture.style.display = "none";
+    lastPicture.style.display = "block";
+  } else {
+    for (let i = 1; i < pictures.length; i++) {
+      if (pictures[i].style.display === "block") {
+        pictures[i].style.display = "none";
+        pictures[i - 1].style.display = "block";
+        break;
+      }
+    }
+  }
+}
+
+function scrollRight() {
+  const pictures = document.getElementsByClassName("couplePictures")[0].getElementsByTagName("img");
+  const firstPicture = pictures[0];
+  const lastPicture = pictures[pictures.length - 1];
+
+  if (lastPicture.style.display === "block") {
+    lastPicture.style.display = "none";
+    firstPicture.style.display = "block";
+  } else {
+    for (let i = 0; i < pictures.length - 1; i++) {
+      if (pictures[i].style.display === "block") {
+        pictures[i].style.display = "none";
+        pictures[i + 1].style.display = "block";
+        break;
+      }
+    }
+  }
+}
+
 </script>
 </body>
