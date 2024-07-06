@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Cheat Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2, h3 {
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        code {
+            background-color: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .example {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>HTML Cheat Sheet</h1>
+
+<h2>Basic Structure</h2>
+<div class="example">
+    <code>
+        &lt;!DOCTYPE html&gt;<br>
+        &lt;html lang="en"&gt;<br>
+        &lt;head&gt;<br>
+        &lt;meta charset="UTF-8"&gt;<br>
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;<br>
+        &lt;title&gt;Title of the document&lt;/title&gt;<br>
+        &lt;/head&gt;<br>
+        &lt;body&gt;<br>
+        &lt;!-- Content goes here --&gt;<br>
+        &lt;/body&gt;<br>
+        &lt;/html&gt;
+    </code>
+</div>
+
+<h2>Head Elements</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Element</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>&lt;title&gt;</code></td>
+            <td>Defines the title of the document</td>
+        </tr>
+        <tr>
+            <td><code>&lt;meta&gt;</code></td>
+            <td>Defines metadata about the document</td>
+        </tr>
+        <tr>
+            <td><code>&lt;link&gt;</code></td>
+            <td>Defines the relationship between the document and an external resource (most used to link stylesheets)</td>
+        </tr>
+        <tr>
+            <td><code>&lt;style&gt;</code></td>
+            <td>Defines style information for the document</td>
+        </tr>
+        <tr>
+            <td><code>&lt;script&gt;</code></td>
+            <td>Defines a client-side script</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Text Formatting</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Element</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>&lt;p&gt;</code></td>
+            <td>Defines a paragraph</td>
+        </tr>
+        <tr>
+            <td><code>&lt;br&gt;</code></td>
+            <td>Inserts a single line break</td>
+        </tr>
+        <tr>
+            <td><code>&lt;hr&gt;</code></td>
+            <td>Defines a thematic change in the content</td>
+        </tr>
+        <tr>
+            <td><code>&lt;b&gt;</code></td>
+            <td>Defines bold text</td>
+        </tr>
+        <tr>
+            <td><code>&lt;i&gt;</code></td>
+            <td>Defines italic text</td>
+        </tr>
+        <tr>
+            <td><code>&lt;u&gt;</code></td>
+            <td>Defines underlined text</td>
+        </tr>
+        <tr>
+            <td><code>&lt;strong&gt;</code></td>
+            <td>Defines important text</td>
+        </tr>
+        <tr>
+            <td><code>&lt;em&gt;</code></td>
+            <td>Defines emphasized text</td>
+        </tr>
+        <tr>
+            <td><code>&lt;mark&gt;</code></td>
+            <td>Defines marked/highlighted text</td>
+        </tr>
+        <tr>
+            <td><code>&lt;small&gt;</code></td>
+            <td>Defines smaller text</td>
+        </tr>
+        <tr>
+            <td><code>&lt;del&gt;</code></td>
+            <td>Defines deleted text</td>
+        </tr>
+        <tr>
+            <td><code>&lt;ins&gt;</code></td>
+            <td>Defines inserted text</td>
+        </tr>
+        <tr>
+            <td><code>&lt;sub&gt;</code></td>
+            <td>Defines subscripted text</td>
+        </tr>
+        <tr>
+            <td><code>&lt;sup&gt;</code></td>
+            <td>Defines superscripted text</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Links</h2>
+<div class="example">
+    <code>
+        &lt;a href="https://www.example.com"&gt;This is a link&lt;/a&gt;
+    </code>
+</div>
+
+<h2>Images</h2>
+<div class="example">
+    <code>
+        &lt;img src="image.jpg" alt="Description of image"&gt;
+    </code>
+</div>
+
+<h2>Lists</h2>
+<h3>Unordered List</h3>
+<div class="example">
+    <code>
+        &lt;ul&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Item 1&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Item 2&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Item 3&lt;/li&gt;<br>
+        &lt;/ul&gt;
+    </code>
+</div>
+<h3>Ordered List</h3>
+<div class="example">
+    <code>
+        &lt;ol&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Item 1&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Item 2&lt;/li&gt;<br>
+        &nbsp;&nbsp;&lt;li&gt;Item 3&lt;/li&gt;<br>
+        &lt;/ol&gt;
+    </code>
+</div>
+
+<h2>Tables</h2>
+<div class="example">
+    <code>
+        &lt;table&gt;<br>
+        &nbsp;&nbsp;&lt;thead&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Header 1&lt;/th&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Header 2&lt;/th&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+        &nbsp;&nbsp;&lt;/thead&gt;<br>
+        &nbsp;&nbsp;&lt;tbody&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;tr&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Data 1&lt;/td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Data 2&lt;/td&gt;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&lt;/tr&gt;<br>
+        &nbsp;&nbsp;&lt;/tbody&gt;<br>
+        &lt;/table&gt;
+    </code>
+</div>
+
+<h2>Forms</h2>
+<div class="example">
+    <code>
+        &lt;form action="submit_form.php" method="post"&gt;<br>
+        &nbsp;&nbsp;&lt;label for="name"&gt;Name:&lt;/label&gt;<br>
+        &nbsp;&nbsp;&lt;input type="text" id="name" name="name"&gt;&lt;br&gt;<br>
+        &nbsp;&nbsp;&lt;label for="email"&gt;Email:&lt;/label&gt;<br>
+        &nbsp;&nbsp;&lt;input type="email" id="email" name="email"&gt;&lt;br&gt;<br>
+        &nbsp;&nbsp;&lt;input type="submit" value="Submit"&gt;<br>
+        &lt;/form&gt;
+    </code>
+</div>
+
+<h2>Semantic Elements</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Element</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>&lt;header&gt;</code></td>
