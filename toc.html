@@ -1,14 +1,110 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TOC</title>
-  </head>
-  <body>
-    <h1 class="bold-text">Table of Contents</h1>
-      <ul>
-        <li><a href="https://www.ellienoyes.co.uk/index.html">Home</a></li>
-        <li><a href="https://www.ellienoyes.co.uk/html.html">HTML Cheat Sheet</a></li>
-        <li>Other</li>
-      </ul>
-  </body>
+    <style>
+        body {
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://source.unsplash.com/random/1600x900');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+        }
+        .container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            margin-top: 15%;
+            animation: fadeIn 2s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        h1.bold-text {
+            font-size: 3em;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            animation: bounceIn 1.5s ease-in-out;
+        }
+        @keyframes bounceIn {
+            0% { transform: scale(0.3); opacity: 0; }
+            50% { transform: scale(1.05); opacity: 1; }
+            70% { transform: scale(0.9); }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+        }
+        li {
+            margin: 10px 0;
+        }
+        a {
+            text-decoration: none;
+            color: #ffdd57;
+            font-size: 1.5em;
+            border: 2px solid #ffdd57;
+            padding: 10px 20px;
+            border-radius: 50px;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            z-index: 1;
+        }
+        a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 221, 87, 0.2);
+            z-index: -1;
+            transition: all 0.3s ease-in-out;
+        }
+        a:hover::before {
+            left: 0;
+        }
+        a:hover {
+            color: #333;
+            background-color: #ffdd57;
+        }
+        li:hover {
+            transform: scale(1.1);
+        }
+        li:nth-child(odd) {
+            animation: slideInLeft 1s ease-in-out;
+        }
+        li:nth-child(even) {
+            animation: slideInRight 1s ease-in-out;
+        }
+        @keyframes slideInLeft {
+            from { transform: translateX(-100%); }
+            to { transform: translateX(0); }
+        }
+        @keyframes slideInRight {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="bold-text">Table of Contents</h1>
+        <ul>
+            <li><a href="https://www.ellienoyes.co.uk/index.html">Home</a></li>
+            <li><a href="https://www.ellienoyes.co.uk/html.html">HTML Cheat Sheet</a></li>
+            <li>Other</li>
+        </ul>
+    </div>
+</body>
 </html>
