@@ -73,37 +73,28 @@ function displayCompliment() {
 </script>
 	</head>
     <style>
-  #orca {
-    width: 67%;
-    height: 60%;
-    margin: 0 auto;
-    background: url('https://cdn-icons-png.flaticon.com/512/3937/3937644.png');
-    position: absolute;
-    z-index: -1;
-    animation: swim 7s linear infinite;
-  }
-
-  @media (max-width: 767px) {
     #orca {
-      width: 80%;
-      height: 70%;
-      position: relative;
-	  }
-  }
-  
-  @keyframes swim {
-    0% {
-      transform: translateX(-100%);
+      width: 67%;
+      height: 60%;
+      margin: 0 auto;
+      background: url('https://cdn-icons-png.flaticon.com/512/3937/3937644.png') no-repeat center;
+      position: absolute;
+      z-index: -1;
+      animation: swim 7s linear infinite;
     }
-    100% {
-      transform: translateX(100%);
-    }
-  }
-      #title {
-        text-align: center;
-        animation: flashTitle 1s infinite;
-      }
 
+    @media (max-width: 767px) {
+      #orca {
+        width: 80%;
+        height: 70%;
+        position: relative;
+      }
+    }
+
+    @keyframes swim {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
       @keyframes flashTitle {
         0% {
           color: red;
