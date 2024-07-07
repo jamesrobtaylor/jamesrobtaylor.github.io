@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wireshark Cheat Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://images.unsplash.com/photo-1550418772-dab2859bd5f4?q=80&w=1898&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table tr {
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        code {
+            background-color: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .example {
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Wireshark Cheat Sheet</h1>
+<p><a href="/toc.html" style="color:light-green">Back to TOC</p>
+<h2>Basic Operations</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Action</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Ctrl + E</code></td>
+            <td>Start/Stop capturing packets</td>
+        </tr>
+        <tr>
+            <td><code>Ctrl + K</code></td>
+            <td>Restart capturing packets</td>
+        </tr>
+        <tr>
+            <td><code>Ctrl + S</code></td>
+            <td>Save captured packets</td>
+        </tr>
+        <tr>
+            <td><code>Ctrl + O</code></td>
+            <td>Open a capture file</td>
+        </tr>
+        <tr>
+            <td><code>Ctrl + Q</code></td>
+            <td>Quit Wireshark</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Display Filters</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Filter</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>ip.addr == [address]</code></td>
+            <td>Filter by IP address</td>
+        </tr>
+        <tr>
+            <td><code>tcp.port == [port]</code></td>
+            <td>Filter by TCP port</td>
+        </tr>
+        <tr>
+            <td><code>udp.port == [port]</code></td>
+            <td>Filter by UDP port</td>
+        </tr>
+        <tr>
+            <td><code>http</code></td>
+            <td>Filter HTTP traffic</td>
+        </tr>
+        <tr>
+            <td><code>dns</code></td>
+            <td>Filter DNS traffic</td>
+        </tr>
+        <tr>
+            <td><code>icmp</code></td>
+            <td>Filter ICMP traffic</td>
+        </tr>
+        <tr>
+            <td><code>eth.addr == [address]</code></td>
+            <td>Filter by Ethernet address</td>
+        </tr>
+        <tr>
+            <td><code>frame contains "[text]"</code></td>
+            <td>Filter by frame content</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Capture Filters</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Filter</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>host [address]</code></td>
+            <td>Capture traffic to/from a specific host</td>
+        </tr>
+        <tr>
+            <td><code>net [network]</code></td>
+            <td>Capture traffic on a specific network</td>
+        </tr>
+        <tr>
+            <td><code>port [port]</code></td>
+            <td>Capture traffic on a specific port</td>
+        </tr>
+        <tr>
+            <td><code>tcp</code></td>
+            <td>Capture TCP traffic</td>
+        </tr>
+        <tr>
+            <td><code>udp</code></td>
+            <td>Capture UDP traffic</td>
+        </tr>
+        <tr>
+            <td><code>icmp</code></td>
+            <td>Capture ICMP traffic</td>
+        </tr>
+        <tr>
+            <td><code>ether host [address]</code></td>
+            <td>Capture traffic to/from a specific Ethernet address</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Statistics</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Statistics &gt; Summary</code></td>
+            <td>Show summary of the capture</td>
+        </tr>
+        <tr>
+            <td><code>Statistics &gt; Protocol Hierarchy</code></td>
+            <td>Show protocol hierarchy</td>
+        </tr>
+        <tr>
+            <td><code>Statistics &gt; Conversations</code></td>
+            <td>Show conversations between endpoints</td>
+        </tr>
+        <tr>
+            <td><code>Statistics &gt; Endpoints</code></td>
+            <td>Show endpoint statistics</td>
+        </tr>
+        <tr>
+            <td><code>Statistics &gt; IO Graphs</code></td>
+            <td>Show input/output graphs</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Follow Streams</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Analyze &gt; Follow &gt; TCP Stream</code></td>
+            <td>Follow TCP stream</td>
+        </tr>
+        <tr>
+            <td><code>Analyze &gt; Follow &gt; UDP Stream</code></td>
+            <td>Follow UDP stream</td>
+        </tr>
+        <tr>
+            <td><code>Analyze &gt; Follow &gt; HTTP Stream</code></td>
+            <td>Follow HTTP stream</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Miscellaneous</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Ctrl + F</code></td>
+            <td>Find a packet</td>
+        </tr>
+        <tr>
+            <td><code>Ctrl + G</code></td>
+            <td>Go to a specific packet</td>
+        </tr>
+        <tr>
+            <td><code>Ctrl + ↑</code></td>
+            <td>Move to previous packet</td>
+        </tr>
+        <tr>
+            <td><code>Ctrl + ↓</code></td>
+            <td>Move to next packet</td>
+        </tr>
+        <tr>
+            <td><code>Ctrl + B</code></td>
+            <td>Set time reference to selected packet</td>
+        </tr>
+        <tr>
+            <td><code>Ctrl + T</code></td>
+            <td>Set a time reference</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
