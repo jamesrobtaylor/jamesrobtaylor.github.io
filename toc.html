@@ -20,8 +20,9 @@
             padding: 20px;
             border-radius: 10px;
             display: inline-block;
-            margin-top: 15%;
+            margin-top: 5vh;
             animation: fadeIn 2s ease-in-out;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
         @keyframes fadeIn {
             from { opacity: 0; }
@@ -105,6 +106,11 @@
             border-radius: 5px;
             width: 70%;
             max-width: 400px;
+            transition: box-shadow 0.3s ease-in-out;
+        }
+        .search-input:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(28, 168, 41, 0.5);
         }
         .search-button {
             padding: 10px 20px;
@@ -120,7 +126,10 @@
             background-color: #51EB60;
         }
         #filteredList {
-            display: none; /* Initially hide the filtered list */
+            display: none;
+        }
+        #filteredList li {
+            transition: opacity 0.3s ease-in-out;
         }
         #filteredList li:nth-child(odd) {
             animation: slideInLeft 1s ease-in-out;
@@ -128,13 +137,22 @@
         #filteredList li:nth-child(even) {
             animation: slideInRight 1s ease-in-out;
         }
+        @media (max-width: 768px) {
+            h1.bold-text {
+                font-size: 2em;
+            }
+            a {
+                font-size: 1.2em;
+                padding: 8px 16px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="bold-text">Repository</h1>
         <div class="search-box">
-            <input type="text" class="search-input" placeholder="Search..." onkeyup="filterResults()">
+            <input type="text" class="search-input" placeholder="Search..." onkeyup="filterResults()" aria-label="Search repository">
         </div>
         <ul id="linkList">
             <li><a href="https://www.ellienoyes.co.uk/index.html">Home</a></li>
@@ -151,33 +169,39 @@
             var input = document.querySelector('.search-input').value.toLowerCase();
             var ul = document.getElementById("linkList");
             var filteredUl = document.getElementById("filteredList");
-            var li = ul.getElementsByTagName('li');
+            var lis = ul.getElementsByTagName('li');
 
             filteredUl.innerHTML = ""; // Clear previous filtered results
 
             if (input === "") {
-                ul.style.display = "block"; // Show original list
-                filteredUl.style.display = "none"; // Hide filtered list
-            } else {
-                ul.style.display = "none"; // Hide original list
-                filteredUl.style.display = "block"; // Show filtered list
+                ul.style.display = "block";
+                filteredUl.style.display = "none";
+                return;
+            }
 
-                for (var i = 0; i < li.length; i++) {
-                    var a = li[i].getElementsByTagName("a")[0];
-                    var txtValue = a.textContent || a.innerText;
-                    if (txtValue.toLowerCase().indexOf(input) > -1) {
-                        var newLi = li[i].cloneNode(true); // Clone the matching li
-                        filteredUl.appendChild(newLi); // Append it to the filtered list
-                    }
+            ul.style.display = "none";
+            filteredUl.style.display = "block";
+
+            var fragment = document.createDocumentFragment();
+            var matchFound = false;
+
+            for (var i = 0; i < lis.length; i++) {
+                var a = lis[i].getElementsByTagName("a")[0];
+                var txtValue = a.textContent || a.innerText;
+                if (txtValue.toLowerCase().indexOf(input) > -1) {
+                    var newLi = lis[i].cloneNode(true);
+                    fragment.appendChild(newLi);
+                    matchFound = true;
                 }
             }
 
-            // If no results found, display a message
-            if (filteredUl.children.length === 0 && input !== "") {
+            if (!matchFound) {
                 var noResults = document.createElement("li");
                 noResults.textContent = "No results found";
-                filteredUl.appendChild(noResults);
+                fragment.appendChild(noResults);
             }
+
+            filteredUl.appendChild(fragment);
         }
     </script>
 </body>
