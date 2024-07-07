@@ -136,7 +136,7 @@
             <li><a href="https://www.ellienoyes.co.uk/html.html">HTML</a></li>
             <li><a href="https://www.ellienoyes.co.uk/linux.html">Linux</a></li>
             <li><a href="https://www.ellienoyes.co.uk/nmap.html">NMAP</a></li>
-            <li><a href="https://www.ellienoyes.co.uk/nmap.html">Wireshark</a></li>
+            <li><a href="https://www.ellienoyes.co.uk/wireshark.html">Wireshark</a></li>
         </ul>
         <ul id="filteredList"></ul>
     </div>
@@ -160,12 +160,8 @@
                     var a = li[i].getElementsByTagName("a")[0];
                     var txtValue = a.textContent || a.innerText;
                     if (txtValue.toLowerCase().indexOf(input) > -1) {
-                        var newLi = document.createElement("li");
-                        var newA = document.createElement("a");
-                        newA.href = a.href;
-                        newA.textContent = a.textContent;
-                        newLi.appendChild(newA);
-                        filteredUl.appendChild(newLi);
+                        var newLi = li[i].cloneNode(true); // Clone the matching li
+                        filteredUl.appendChild(newLi); // Append it to the filtered list
                     }
                 }
             }
