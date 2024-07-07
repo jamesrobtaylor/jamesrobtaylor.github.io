@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linux Cheat Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://images.unsplash.com/photo-1562813733-b31f71025d54?q=80&w=1769&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table tr {
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        code {
+            background-color: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .example {
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Linux Cheat Sheet</h1>
+
+<h2>Basic Commands</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>pwd</code></td>
+            <td>Print working directory</td>
+        </tr>
+        <tr>
+            <td><code>ls</code></td>
+            <td>List directory contents</td>
+        </tr>
+        <tr>
+            <td><code>cd [directory]</code></td>
+            <td>Change directory</td>
+        </tr>
+        <tr>
+            <td><code>cp [source] [destination]</code></td>
+            <td>Copy files or directories</td>
+        </tr>
+        <tr>
+            <td><code>mv [source] [destination]</code></td>
+            <td>Move or rename files or directories</td>
+        </tr>
+        <tr>
+            <td><code>rm [file]</code></td>
+            <td>Remove files</td>
+        </tr>
+        <tr>
+            <td><code>touch [file]</code></td>
+            <td>Create a new empty file</td>
+        </tr>
+        <tr>
+            <td><code>mkdir [directory]</code></td>
+            <td>Create new directory</td>
+        </tr>
+        <tr>
+            <td><code>rmdir [directory]</code></td>
+            <td>Remove empty directory</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>File Viewing and Editing</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>cat [file]</code></td>
+            <td>Concatenate and display file content</td>
+        </tr>
+        <tr>
+            <td><code>less [file]</code></td>
+            <td>View file content page by page</td>
+        </tr>
+        <tr>
+            <td><code>more [file]</code></td>
+            <td>View file content with scrolling</td>
+        </tr>
+        <tr>
+            <td><code>head [file]</code></td>
+            <td>View the first 10 lines of a file</td>
+        </tr>
+        <tr>
+            <td><code>tail [file]</code></td>
+            <td>View the last 10 lines of a file</td>
+        </tr>
+        <tr>
+            <td><code>nano [file]</code></td>
+            <td>Edit files with Nano editor</td>
+        </tr>
+        <tr>
+            <td><code>vi [file]</code></td>
+            <td>Edit files with Vi editor</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>File Permissions</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>chmod [mode] [file]</code></td>
+            <td>Change file permissions</td>
+        </tr>
+        <tr>
+            <td><code>chown [owner][:group] [file]</code></td>
+            <td>Change file owner and group</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Searching and Finding</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>find [directory] -name [filename]</code></td>
+            <td>Find files by name</td>
+        </tr>
+        <tr>
+            <td><code>grep [pattern] [file]</code></td>
+            <td>Search for a pattern within files</td>
+        </tr>
+        <tr>
+            <td><code>locate [name]</code></td>
+            <td>Find files by name using a database</td>
+        </tr>
+        <tr>
+            <td><code>which [command]</code></td>
+            <td>Show the path of a command</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>System Information</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>uname -a</code></td>
+            <td>Show all system information</td>
+        </tr>
+        <tr>
+            <td><code>df -h</code></td>
+            <td>Show disk usage in human-readable format</td>
+        </tr>
+        <tr>
+            <td><code>du -sh [directory]</code></td>
+            <td>Show directory size</td>
+        </tr>
+        <tr>
+            <td><code>top</code></td>
+            <td>Display real-time system processes</td>
+        </tr>
+        <tr>
+            <td><code>free -h</code></td>
+            <td>Show free and used memory</td>
+        </tr>
+        <tr>
+            <td><code>uptime</code></td>
+            <td>Show how long the system has been running</td>
+        </tr>
+        <tr>
+            <td><code>who</code></td>
+            <td>Show who is logged on</td>
+        </tr>
+        <tr>
+            <td><code>dmesg</code></td>
+            <td>Display kernel message buffer</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Networking</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>ip a</code></td>
+            <td>Show IP addresses and network interfaces</td>
+        </tr>
+        <tr>
+            <td><code>ping [host]</code></td>
+            <td>Send ICMP ECHO_REQUEST to network hosts</td>
+        </tr>
+        <tr>
+            <td><code>netstat -tuln</code></td>
+            <td>Show listening ports</td>
+        </tr>
+        <tr>
+            <td><code>ss -tuln</code></td>
+            <td>Show listening ports (alternative to netstat)</td>
+        </tr>
+        <tr>
+            <td><code>curl [url]</code></td>
+            <td>Transfer data from or to a server</td>
+        </tr>
+        <tr>
+            <td><code>wget [url]</code></td>
+            <td>Download files from the web</td>
+        </tr>
+        <tr>
+            <td><code>scp [source] [user@host:destination]</code></td>
+            <td>Secure copy over SSH</td>
+        </tr>
+        <tr>
+            <td><code>ssh [user@host]</code></td>
+            <td>Connect to a remote host via SSH</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Package Management</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>apt update</code></td>
+            <td>Update package lists (Debian/Ubuntu)</td>
+        </tr>
+        <tr>
+            <td><code>apt upgrade</code></td>
+            <td>Upgrade all packages (Debian/Ubuntu)</td>
+        </tr>
+        <tr>
+            <td><code>apt install [package]</code></td>
+            <td>Install a package (Debian/Ubuntu)</td>
+        </tr>
+        <tr>
+            <td><code>yum update</code></td>
+            <td>Update package lists (RHEL/CentOS)</td>
+        </tr>
+        <tr>
+            <td><code>yum install [package]</code></td>
+            <td>Install a package (RHEL/CentOS)</td>
+        </tr>
+        <tr>
+            <td><code>dnf update</code></td>
+            <td>Update package lists (Fedora)</td>
+        </tr>
+        <tr>
+            <td><code>dnf install [package]</code></td>
+            <td>Install a package (Fedora)</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Disk and File System Management</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>mount [device] [mountpoint]</code></td>
+            <td>Mount a file system</td>
+        </tr>
+        <tr>
+            <td><code>umount [mountpoint]</code></td>
+            <td>Unmount a file system</td>
+        </tr>
+        <tr>
+            <td><code>fdisk -l</code></td>
+            <td>List disk partitions</td>
+        </tr>
+        <tr>
+            <td><code>mkfs.ext4 [device]</code></td>
+            <td>Format a partition with ext4</td>
+        </tr>
+        <tr>
+            <td><code>fsck [device]</code></td>
+            <td>Check and repair a file system</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Scripting and Automation</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>sh [script]</code></td>
+            <td>Run a shell script</td>
+        </tr>
+        <tr>
+            <td><code>bash [script]</code></td>
+            <td>Run a bash script</td>
+        </tr>
+        <tr>
+            <td><code>crontab -e</code></td>
+            <td>Edit user crontab</td>
+        </tr>
+        <tr>
+            <td><code>at [time]</code></td>
+            <td>Schedule a job at a specific time</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Environment Variables</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>echo $VARIABLE</code></td>
+            <td>Print value of a variable</td>
+        </tr>
+        <tr>
+            <td><code>export VARIABLE=value</code></td>
+            <td>Set an environment variable</td>
+        </tr>
+        <tr>
+            <td><code>env</code></td>
+            <td>List all environment variables</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>User and Group Management</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>useradd [user]</code></td>
+            <td>Add a new user</td>
+        </tr>
+        <tr>
+            <td><code>passwd [user]</code></td>
+            <td>Change user password</td>
+        </tr>
+        <tr>
+            <td><code>userdel [user]</code></td>
+            <td>Delete a user</td>
+        </tr>
+        <tr>
+            <td><code>groupadd [group]</code></td>
+            <td>Add a new group</td>
+        </tr>
+        <tr>
+            <td><code>usermod -aG [group] [user]</code></td>
+            <td>Add user to group</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Archive and Compression</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>tar -cvf [archive.tar] [directory]</code></td>
+            <td>Create a tar archive</td>
+        </tr>
+        <tr>
+            <td><code>tar -xvf [archive.tar]</code></td>
+            <td>Extract a tar archive</td>
+        </tr>
+        <tr>
+            <td><code>gzip [file]</code></td>
+            <td>Compress a file with gzip</td>
+        </tr>
+        <tr>
+            <td><code>gunzip [file.gz]</code></td>
+            <td>Decompress a gzip file</td>
+        </tr>
+        <tr>
+            <td><code>zip [archive.zip] [file]</code></td>
+            <td>Create a zip archive</td>
+        </tr>
+        <tr>
+            <td><code>unzip [archive.zip]</code></td>
+            <td>Extract a zip archive</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Miscellaneous</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>alias [alias_name]='[command]'</code></td>
+            <td>Create a command alias</td>
+        </tr>
+        <tr>
+            <td><code>history</code></td>
+            <td>Show command history</td>
+        </tr>
+        <tr>
+            <td><code>!!</code></td>
+            <td>Run the last command again</td>
+        </tr>
+        <tr>
+            <td><code>man [command]</code></td>
+            <td>Show the manual for a command</td>
+        </tr>
+        <tr>
+            <td><code>echo [text]</code></td>
+            <td>Print text to the terminal</td>
+        </tr>
+        <tr>
+            <td><code>date</code></td>
+            <td>Show current date and time</td>
+        </tr>
+        <tr>
+            <td><code>cal</code></td>
+            <td>Show calendar</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
