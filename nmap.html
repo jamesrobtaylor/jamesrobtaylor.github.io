@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nmap Cheat Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://images.unsplash.com/photo-1546146477-15a587cd3fcb?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: 2160x3840;
+            background-position: center;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table tr {
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        code {
+            background-color: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .example {
+            background-color: rgba(255, 255, 255, 0.8); /* White with 80% opacity */
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Nmap Cheat Sheet</h1>
+
+<h2>Basic Scanning</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>nmap [target]</code></td>
+            <td>Basic scan of the target</td>
+        </tr>
+        <tr>
+            <td><code>nmap -v [target]</code></td>
+            <td>Verbose scan of the target</td>
+        </tr>
+        <tr>
+            <td><code>nmap -A [target]</code></td>
+            <td>Advanced scan with OS and version detection</td>
+        </tr>
+        <tr>
+            <td><code>nmap -T4 [target]</code></td>
+            <td>Faster scan with timing template</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Host Discovery</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>nmap -sP [network]</code></td>
+            <td>Ping scan to discover live hosts</td>
+        </tr>
+        <tr>
+            <td><code>nmap -sn [network]</code></td>
+            <td>Ping scan without port scan</td>
+        </tr>
+        <tr>
+            <td><code>nmap -Pn [target]</code></td>
+            <td>Scan without ping</td>
+        </tr>
+        <tr>
+            <td><code>nmap -PS [target]</code></td>
+            <td>TCP SYN discovery on specified ports</td>
+        </tr>
+        <tr>
+            <td><code>nmap -PU [target]</code></td>
+            <td>UDP discovery on specified ports</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Port Scanning</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>nmap -p [port] [target]</code></td>
+            <td>Scan specific port</td>
+        </tr>
+        <tr>
+            <td><code>nmap -p [port-range] [target]</code></td>
+            <td>Scan range of ports</td>
+        </tr>
+        <tr>
+            <td><code>nmap -F [target]</code></td>
+            <td>Fast scan of top 100 ports</td>
+        </tr>
+        <tr>
+            <td><code>nmap -r [target]</code></td>
+            <td>Scan ports consecutively</td>
+        </tr>
+        <tr>
+            <td><code>nmap --top-ports [number] [target]</code></td>
+            <td>Scan top [number] ports</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Service and OS Detection</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>nmap -sV [target]</code></td>
+            <td>Version detection</td>
+        </tr>
+        <tr>
+            <td><code>nmap -O [target]</code></td>
+            <td>OS detection</td>
+        </tr>
+        <tr>
+            <td><code>nmap -A [target]</code></td>
+            <td>Advanced scan with OS and version detection</td>
+        </tr>
+        <tr>
+            <td><code>nmap --script [script] [target]</code></td>
+            <td>Run specific Nmap script</td>
+        </tr>
+        <tr>
+            <td><code>nmap -sC [target]</code></td>
+            <td>Run default scripts</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Output Options</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>nmap -oN [file] [target]</code></td>
+            <td>Normal output to file</td>
+        </tr>
+        <tr>
+            <td><code>nmap -oX [file] [target]</code></td>
+            <td>XML output to file</td>
+        </tr>
+        <tr>
+            <td><code>nmap -oG [file] [target]</code></td>
+            <td>Grepable output to file</td>
+        </tr>
+        <tr>
+            <td><code>nmap -oA [basename] [target]</code></td>
+            <td>Output in all formats</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Miscellaneous</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>nmap -v [target]</code></td>
+            <td>Increase verbosity</td>
+        </tr>
+        <tr>
+            <td><code>nmap -d [target]</code></td>
+            <td>Increase debugging level</td>
+        </tr>
+        <tr>
+            <td><code>nmap --open [target]</code></td>
+            <td>Show only open ports</td>
+        </tr>
+        <tr>
+            <td><code>nmap --reason [target]</code></td>
+            <td>Show reason for each port state</td>
+        </tr>
+        <tr>
+            <td><code>nmap --packet-trace [target]</code></td>
+            <td>Show all packets sent and received</td>
+        </tr>
+        <tr>
+            <td><code>nmap --iflist</code></td>
+            <td>Show host interfaces and routes</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
