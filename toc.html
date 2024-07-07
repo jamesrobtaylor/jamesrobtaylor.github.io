@@ -122,6 +122,12 @@
         #filteredList {
             display: none; /* Initially hide the filtered list */
         }
+        #filteredList li:nth-child(odd) {
+            animation: slideInLeft 1s ease-in-out;
+        }
+        #filteredList li:nth-child(even) {
+            animation: slideInRight 1s ease-in-out;
+        }
     </style>
 </head>
 <body>
@@ -150,11 +156,11 @@
             filteredUl.innerHTML = ""; // Clear previous filtered results
 
             if (input === "") {
-                ul.style.display = ""; // Show original list
+                ul.style.display = "block"; // Show original list
                 filteredUl.style.display = "none"; // Hide filtered list
             } else {
                 ul.style.display = "none"; // Hide original list
-                filteredUl.style.display = ""; // Show filtered list
+                filteredUl.style.display = "block"; // Show filtered list
 
                 for (var i = 0; i < li.length; i++) {
                     var a = li[i].getElementsByTagName("a")[0];
@@ -164,6 +170,13 @@
                         filteredUl.appendChild(newLi); // Append it to the filtered list
                     }
                 }
+            }
+
+            // If no results found, display a message
+            if (filteredUl.children.length === 0 && input !== "") {
+                var noResults = document.createElement("li");
+                noResults.textContent = "No results found";
+                filteredUl.appendChild(noResults);
             }
         }
     </script>
