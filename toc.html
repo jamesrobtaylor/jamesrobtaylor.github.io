@@ -46,6 +46,7 @@
         }
         li {
             margin: 10px 0;
+            display: none; /* Initially hide all list items */
         }
         a {
             text-decoration: none;
@@ -125,10 +126,9 @@
     <div class="container">
         <h1 class="bold-text">Repository</h1>
         <div class="search-box">
-            <input type="text" class="search-input" placeholder="Search...">
-            <button class="search-button">Search</button>
+            <input type="text" class="search-input" placeholder="Search..." onkeyup="filterResults()">
         </div>
-        <ul>
+        <ul id="linkList">
             <li><a href="https://www.ellienoyes.co.uk/index.html">Home</a></li>
             <li><a href="https://www.ellienoyes.co.uk/html.html">HTML Cheat Sheet</a></li>
             <li><a href="https://tinyurl.com/4u89zp2z">Nudes</a></li>
@@ -136,5 +136,29 @@
             <li><a href="https://www.ellienoyes.co.uk/nmap.html">NMAP Cheat Sheet</a></li>
         </ul>
     </div>
+    <script>
+        function filterResults() {
+            var input = document.querySelector('.search-input').value.toLowerCase();
+            var ul = document.getElementById("linkList");
+            var li = ul.getElementsByTagName('li');
+
+            for (var i = 0; i < li.length; i++) {
+                var a = li[i].getElementsByTagName("a")[0];
+                var txtValue = a.textContent || a.innerText;
+                if (txtValue.toLowerCase().indexOf(input) > -1) {
+                    li[i].style.display = "";
+                } else {
+                    li[i].style.display = "none";
+                }
+            }
+        }
+        // Initial display of all list items
+        window.onload = function() {
+            var li = document.getElementById("linkList").getElementsByTagName('li');
+            for (var i = 0; i < li.length; i++) {
+                li[i].style.display = ""; // Show all list items on load
+            }
+        };
+    </script>
 </body>
 </html>
