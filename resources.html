@@ -40,59 +40,86 @@
             text-decoration: underline;
         }
     </style>
+         <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            elmnt.innerHTML = this.responseText;
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+        document.addEventListener("DOMContentLoaded", includeHTML);
+    </script>
 </head>
 <body>
+
+<div w3-include-html="header.html"></div>
+    
     <h1>Cybersecurity Resources</h1>
     
     <h2>Training Platforms</h2>
     <ul>
-        <li><a href="#">TryHackMe (THM)</a></li>
-        <li><a href="#">HackTheBox (HTB)</a></li>
+        <li><a href="https://tryhackme.com">TryHackMe (THM)</a></li>
+        <li><a href="https://hackthebox.com">HackTheBox (HTB)</a></li>
     </ul>
 
     <h2>Linux Resources</h2>
     <ul>
-        <li><a href="#">Linux Command Line Basics</a></li>
-        <li><a href="#">Linux Security Best Practices</a></li>
+        <li><a href="https://www.udemy.com/course/linux-command-line-beginners/">Linux Command Line Basics</a></li>
+        <li><a href="https://www.tecmint.com/linux-server-security-tips/">Linux Security Best Practices</a></li>
     </ul>
 
     <h2>Vulnerability Research</h2>
     <ul>
-        <li><a href="#">ExploitDB</a></li>
-        <li><a href="#">NVD - National Vulnerability Database</a></li>
-        <li><a href="#">CVE - Common Vulnerabilities and Exposures</a></li>
+        <li><a href="https://www.exploit-db.com">ExploitDB</a></li>
+        <li><a href="https://nvd.nist.gov">NVD - National Vulnerability Database</a></li>
+        <li><a href="https://cve.mitre.org">CVE - Common Vulnerabilities and Exposures</a></li>
     </ul>
 
     <h2>Network Analysis Tools</h2>
     <ul>
-        <li><a href="#">Wireshark Tutorials</a></li>
-        <li><a href="#">Network Protocol Analysis</a></li>
+        <li><a href="https://www.wireshark.org/docs/">Wireshark Tutorials</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/Protocol_analysis">Network Protocol Analysis</a></li>
     </ul>
 
     <h2>Educational Resources</h2>
     <ul>
-        <li><a href="#">How Email Works | HowStuffWorks</a></li>
-        <li><a href="#">Understanding VPN Security</a></li>
+        <li><a href="https://computer.howstuffworks.com/email.htm">How Email Works | HowStuffWorks</a></li>
+        <li><a href="https://www.varonis.com/blog/vpn-security">Understanding VPN Security</a></li>
     </ul>
 
     <h2>Security Configurations</h2>
     <ul>
-        <li><a href="#">Configuring Firewall Rules with Group Policy</a></li>
+        <li><a href="https://docs.microsoft.com/en-us/windows/security/threat-protection/windows-firewall/create-inbound-outbound-rules">Configuring Firewall Rules with Group Policy</a></li>
     </ul>
 
     <h2>Threat Intelligence</h2>
     <ul>
-        <li><a href="#">IP Address Abuse Reports</a></li>
-        <li><a href="#">Cisco Talos Intelligence Group</a></li>
+        <li><a href="https://www.abuseipdb.com">IP Address Abuse Reports</a></li>
+        <li><a href="https://talosintelligence.com">Cisco Talos Intelligence Group</a></li>
     </ul>
 
     <h2>Network Basics</h2>
     <ul>
-        <li><a href="#">Understanding Ports 1-1024</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/List_of_TCP_and_UDP_port_numbers">Understanding Ports 1-1024</a></li>
     </ul>
 
     <footer>
-        <p>Note: This resource list is for educational purposes only. Always ensure you have proper authorization before accessing or testing any systems or networks.</p>
+        <p>Note: This resource list is for educational purposes only.</p>
     </footer>
 </body>
 </html>
