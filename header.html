@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: white;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .header img {
+            height: 50px;
+        }
+        .nav-menu {
+            position: relative;
+            display: inline-block;
+        }
+        .nav-menu button {
+            background-color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: white;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+            z-index: 1;
+        }
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+        .nav-menu:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="https://www.clipartmax.com/png/small/202-2026068_pharaoh-hound-free-icon-icono-podenco.png" alt="Pharaoh Hound Free Icon - Icono Podenco @clipartmax.com">
+        <div class="nav-menu">
+            <button>Cheat Sheets</button>
+            <div class="dropdown-content">
+                <a href="https://www.ellienoyes.co.uk/html.html">HTML Cheat Sheet</a>
+                <a href="https://www.ellienoyes.co.uk/linux.html">Linux Cheat Sheet</a>
+                <a href="https://www.ellienoyes.co.uk/nmap.html">Nmap Cheat Sheet</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
