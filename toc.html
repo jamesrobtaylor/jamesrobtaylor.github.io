@@ -46,7 +46,6 @@
         }
         li {
             margin: 10px 0;
-            display: none; /* Initially hide all list items */
         }
         a {
             text-decoration: none;
@@ -135,30 +134,26 @@
             <li><a href="https://www.ellienoyes.co.uk/linux.html">Linux Cheat Sheet</a></li>
             <li><a href="https://www.ellienoyes.co.uk/nmap.html">NMAP Cheat Sheet</a></li>
         </ul>
+        <ul id="filteredList"></ul>
     </div>
     <script>
         function filterResults() {
             var input = document.querySelector('.search-input').value.toLowerCase();
             var ul = document.getElementById("linkList");
+            var filteredUl = document.getElementById("filteredList");
             var li = ul.getElementsByTagName('li');
+
+            filteredUl.innerHTML = ""; // Clear previous filtered results
 
             for (var i = 0; i < li.length; i++) {
                 var a = li[i].getElementsByTagName("a")[0];
                 var txtValue = a.textContent || a.innerText;
                 if (txtValue.toLowerCase().indexOf(input) > -1) {
-                    li[i].style.display = "";
-                } else {
-                    li[i].style.display = "none";
+                    var newLi = li[i].cloneNode(true); // Clone the matching li
+                    filteredUl.appendChild(newLi); // Append it to the filtered list
                 }
             }
         }
-        // Initial display of all list items
-        window.onload = function() {
-            var li = document.getElementById("linkList").getElementsByTagName('li');
-            for (var i = 0; i < li.length; i++) {
-                li[i].style.display = ""; // Show all list items on load
-            }
-        };
     </script>
 </body>
 </html>
