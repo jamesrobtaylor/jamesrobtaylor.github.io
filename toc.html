@@ -95,11 +95,39 @@
             from { transform: translateX(100%); }
             to { transform: translateX(0); }
         }
+        .search-box {
+            margin-bottom: 20px;
+        }
+        .search-input {
+            padding: 10px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            width: 70%;
+            max-width: 400px;
+        }
+        .search-button {
+            padding: 10px 20px;
+            font-size: 1.2em;
+            border: none;
+            border-radius: 5px;
+            background-color: #1ca829;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .search-button:hover {
+            background-color: #51EB60;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1 class="bold-text">Repository</h1>
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Search...">
+            <button class="search-button">Search</button>
+        </div>
         <ul>
             <li><a href="https://www.ellienoyes.co.uk/index.html">Home</a></li>
             <li><a href="https://www.ellienoyes.co.uk/html.html">HTML Cheat Sheet</a></li>
