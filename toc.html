@@ -119,6 +119,9 @@
         .search-button:hover {
             background-color: #51EB60;
         }
+        #filteredList {
+            display: none; /* Initially hide the filtered list */
+        }
     </style>
 </head>
 <body>
@@ -145,12 +148,20 @@
 
             filteredUl.innerHTML = ""; // Clear previous filtered results
 
-            for (var i = 0; i < li.length; i++) {
-                var a = li[i].getElementsByTagName("a")[0];
-                var txtValue = a.textContent || a.innerText;
-                if (txtValue.toLowerCase().indexOf(input) > -1) {
-                    var newLi = li[i].cloneNode(true); // Clone the matching li
-                    filteredUl.appendChild(newLi); // Append it to the filtered list
+            if (input === "") {
+                ul.style.display = ""; // Show original list
+                filteredUl.style.display = "none"; // Hide filtered list
+            } else {
+                ul.style.display = "none"; // Hide original list
+                filteredUl.style.display = ""; // Show filtered list
+
+                for (var i = 0; i < li.length; i++) {
+                    var a = li[i].getElementsByTagName("a")[0];
+                    var txtValue = a.textContent || a.innerText;
+                    if (txtValue.toLowerCase().indexOf(input) > -1) {
+                        var newLi = li[i].cloneNode(true); // Clone the matching li
+                        filteredUl.appendChild(newLi); // Append it to the filtered list
+                    }
                 }
             }
         }
