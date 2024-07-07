@@ -1,0 +1,161 @@
+body {
+    background-color: pink;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 20px;
+}
+
+#title {
+    text-align: center;
+    animation: flashTitle 1s infinite;
+}
+
+@keyframes flashTitle {
+    0% { color: red; }
+    50% { color: yellow; }
+    100% { color: red; }
+}
+
+#title2 {
+    text-align: center;
+    color: white;
+}
+
+#compliment {
+    background-color: red;
+    border: 5px solid #ffd700;
+    text-align: center;
+    margin: 20px auto;
+    width: 80%;
+    max-width: 600px;
+    padding: 10px;
+    animation: flashBorder 1s infinite alternate;
+    color: white;
+    font-size: 20px;
+}
+
+@keyframes flashBorder {
+    to { border-color: #f9a602; }
+}
+
+#love-heart {
+    width: 200px;
+    height: 200px;
+    margin: 50px auto;
+    background: url('https://cdn-icons-png.flaticon.com/512/8222/8222105.png') no-repeat center;
+    background-size: contain;
+    position: relative;
+}
+
+#refresh-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 150px;
+    height: 150px;
+    background-color: transparent;
+    border: 0;
+    cursor: pointer;
+    font-size: 50px;
+}
+
+.arrow {
+    width: 50px;
+    height: 50px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-size: contain;
+}
+
+.arrow-left {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/7589/7589860.png');
+}
+
+.arrow-right {
+    background-image: url('https://i.imgur.com/e66gOGi.png');
+}
+
+.couplePictures {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.picture {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background-size: cover;
+    clip-path: path("M 50% 15%, C 35% 0%, 0% 25%, 50% 100%, 100% 25%, 65% 0%, 50% 15%");
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.picture:hover {
+    transform: scale(1.05);
+}
+
+#couplePicture { background-image: url('https://i.imgur.com/XELLqgw.jpg'); }
+#couplePicture2 { background-image: url('https://i.imgur.com/6CsG27E.jpg'); }
+#couplePicture3 { background-image: url('https://i.imgur.com/If8rEA8.jpg'); }
+#couplePicture4 { background-image: url('https://i.imgur.com/fYKbuHp.jpg'); }
+#couplePicture5 { background-image: url('https://i.imgur.com/Us2J63r.jpg'); }
+#couplePicture6 { background-image: url('https://i.imgur.com/ujLex4T.jpg'); }
+
+#orca {
+    width: 67%;
+    height: 60%;
+    background: url('https://cdn-icons-png.flaticon.com/512/3937/3937644.png') no-repeat center;
+    position: fixed;
+    z-index: -1;
+    animation: swim 7s linear infinite;
+}
+
+@keyframes swim {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+#iframeContainer {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .picture {
+        width: 200px;
+        height: 200px;
+    }
+
+    #love-heart {
+        width: 150px;
+        height: 150px;
+    }
+
+    #refresh-button {
+        width: 100px;
+        height: 100px;
+        font-size: 30px;
+    }
+
+    #orca {
+        width: 80%;
+        height: 70%;
+    }
+}
