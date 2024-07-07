@@ -132,8 +132,8 @@
         </div>
         <ul id="linkList">
             <li><a href="https://www.ellienoyes.co.uk/index.html">Home</a></li>
-            <li><a href="https://tinyurl.com/4u89zp2z">Nudes</a></li>
             <li><a href="https://www.ellienoyes.co.uk/html.html">HTML Cheat Sheet</a></li>
+            <li><a href="https://tinyurl.com/4u89zp2z">Nudes</a></li>
             <li><a href="https://www.ellienoyes.co.uk/linux.html">Linux Cheat Sheet</a></li>
             <li><a href="https://www.ellienoyes.co.uk/nmap.html">NMAP Cheat Sheet</a></li>
         </ul>
@@ -159,8 +159,12 @@
                     var a = li[i].getElementsByTagName("a")[0];
                     var txtValue = a.textContent || a.innerText;
                     if (txtValue.toLowerCase().indexOf(input) > -1) {
-                        var newLi = li[i].cloneNode(true); // Clone the matching li
-                        filteredUl.appendChild(newLi); // Append it to the filtered list
+                        var newLi = document.createElement("li");
+                        var newA = document.createElement("a");
+                        newA.href = a.href;
+                        newA.textContent = a.textContent;
+                        newLi.appendChild(newA);
+                        filteredUl.appendChild(newLi);
                     }
                 }
             }
