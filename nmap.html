@@ -78,24 +78,29 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>nmap [target]</code></td>
             <td>Basic scan of the target</td>
+            <td><code>nmap 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -v [target]</code></td>
             <td>Verbose scan of the target</td>
+            <td><code>nmap -v 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -A [target]</code></td>
             <td>Advanced scan with OS and version detection</td>
+            <td><code>nmap -A 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -T4 [target]</code></td>
             <td>Faster scan with timing template</td>
+            <td><code>nmap -T4 192.168.1.1</code></td>
         </tr>
     </tbody>
 </table>
@@ -106,28 +111,34 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>nmap -sP [network]</code></td>
             <td>Ping scan to discover live hosts</td>
+            <td><code>nmap -sP 192.168.1.0/24</code></td>
         </tr>
         <tr>
             <td><code>nmap -sn [network]</code></td>
             <td>Ping scan without port scan</td>
+            <td><code>nmap -sn 192.168.1.0/24</code></td>
         </tr>
         <tr>
             <td><code>nmap -Pn [target]</code></td>
             <td>Scan without ping</td>
+            <td><code>nmap -Pn 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -PS [target]</code></td>
             <td>TCP SYN discovery on specified ports</td>
+            <td><code>nmap -PS 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -PU [target]</code></td>
             <td>UDP discovery on specified ports</td>
+            <td><code>nmap -PU 192.168.1.1</code></td>
         </tr>
     </tbody>
 </table>
@@ -138,28 +149,34 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>nmap -p [port] [target]</code></td>
             <td>Scan specific port</td>
+            <td><code>nmap -p 80 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -p [port-range] [target]</code></td>
             <td>Scan range of ports</td>
+            <td><code>nmap -p 20-80 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -F [target]</code></td>
             <td>Fast scan of top 100 ports</td>
+            <td><code>nmap -F 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -r [target]</code></td>
             <td>Scan ports consecutively</td>
+            <td><code>nmap -r 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap --top-ports [number] [target]</code></td>
             <td>Scan top [number] ports</td>
+            <td><code>nmap --top-ports 10 192.168.1.1</code></td>
         </tr>
     </tbody>
 </table>
@@ -170,28 +187,34 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>nmap -sV [target]</code></td>
             <td>Version detection</td>
+            <td><code>nmap -sV 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -O [target]</code></td>
             <td>OS detection</td>
+            <td><code>nmap -O 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -A [target]</code></td>
             <td>Advanced scan with OS and version detection</td>
+            <td><code>nmap -A 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap --script [script] [target]</code></td>
             <td>Run specific Nmap script</td>
+            <td><code>nmap --script http-title 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -sC [target]</code></td>
             <td>Run default scripts</td>
+            <td><code>nmap -sC 192.168.1.1</code></td>
         </tr>
     </tbody>
 </table>
@@ -202,24 +225,29 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>nmap -oN [file] [target]</code></td>
             <td>Normal output to file</td>
+            <td><code>nmap -oN output.txt 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -oX [file] [target]</code></td>
             <td>XML output to file</td>
+            <td><code>nmap -oX output.xml 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -oG [file] [target]</code></td>
             <td>Grepable output to file</td>
+            <td><code>nmap -oG output.gnmap 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -oA [basename] [target]</code></td>
             <td>Output in all formats</td>
+            <td><code>nmap -oA output 192.168.1.1</code></td>
         </tr>
     </tbody>
 </table>
@@ -230,32 +258,39 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>nmap -v [target]</code></td>
             <td>Increase verbosity</td>
+            <td><code>nmap -v 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap -d [target]</code></td>
             <td>Increase debugging level</td>
+            <td><code>nmap -d 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap --open [target]</code></td>
             <td>Show only open ports</td>
+            <td><code>nmap --open 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap --reason [target]</code></td>
             <td>Show reason for each port state</td>
+            <td><code>nmap --reason 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap --packet-trace [target]</code></td>
             <td>Show all packets sent and received</td>
+            <td><code>nmap --packet-trace 192.168.1.1</code></td>
         </tr>
         <tr>
             <td><code>nmap --iflist</code></td>
             <td>Show host interfaces and routes</td>
+            <td><code>nmap --iflist</code></td>
         </tr>
     </tbody>
 </table>
