@@ -1,5 +1,3 @@
-// cheatsheet-utils.js
-
 function includeHTML() {
     var z, i, elmnt, file, xhttp;
     z = document.getElementsByTagName("*");
@@ -114,6 +112,10 @@ function searchCheatSheet() {
     
     for (let table of tables) {
         let rows = table.getElementsByTagName('tr');
+        let section = table.previousElementSibling;
+
+        let foundInSection = false;
+        
         for (let row of rows) {
             let cells = row.getElementsByTagName('td');
             let found = false;
@@ -127,9 +129,15 @@ function searchCheatSheet() {
             
             if (found) {
                 row.style.display = "";
+                foundInSection = true;
             } else {
                 row.style.display = "none";
             }
+        }
+
+        if (foundInSection && section.tagName === 'H2') {
+            section.nextElementSibling.style.display = 'block';
+            section.querySelector('.toggle-icon').textContent = '[-]';
         }
     }
 }
