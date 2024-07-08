@@ -48,13 +48,30 @@
             transition: padding 0.3s ease; /* Added transition for smooth resizing */
         }
 
+        @keyframes pulse-hr {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.75;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
         hr {
             border: 0;
             height: 1px;
             background: var(--white);
-            width: 25%; /* Set the width to 50% of the container */
+            width: 25%; /* Set the width to 25% of the container */
             margin: 4rem auto; /* Center the divider with auto margins on the left and right */
+            animation: pulse-hr 2s infinite; /* Apply the pulsing animation */
         }
+
 
         h1 {
             font-size: 3rem;
