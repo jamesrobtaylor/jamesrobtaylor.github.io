@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V28 Cyber - Your Cyber Defense Partner</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
     <style>
         :root {
             --light-green: #1c9582;
@@ -144,6 +145,10 @@
             width: calc(33.33% - 2rem);
             transition: transform 0.3s ease;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 250px; /* Adjust this value as needed */
         }
 
         .reason:hover, .service:hover {
@@ -164,6 +169,8 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
             margin-top: 1rem;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .enquire-btn:hover {
@@ -192,10 +199,57 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
-
+        
         .callback-form button:hover {
             background-color: var(--dark-green);
             color: var(--white);
+        }
+
+        .about-us {
+            background-color: var(--dark-green);
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .about-us h2 {
+            color: var(--light-green);
+            margin-bottom: 1rem;
+        }
+
+        .about-us p {
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .faq {
+            padding: 4rem 2rem;
+        }
+
+        .faq h2 {
+            color: var(--light-green);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-question {
+            background-color: var(--dark-green);
+            color: var(--white);
+            padding: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .faq-answer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 1rem;
+            display: none;
+            border-radius: 0 0 5px 5px;
         }
 
         footer {
@@ -224,6 +278,7 @@
         </div>
         <nav>
             <ul>
+                <li><a href="#about-us">About Us</a></li>
                 <li><a href="#why-choose-us">Why Choose Us</a></li>
                 <li><a href="#services">Services</a></li>
                 <li><a href="#callback">Contact</a></li>
@@ -239,10 +294,15 @@
             <h1>V28 Cyber</h1>
             <p>Unbreakable Cyber Defense Starts Here</p>
         </div>
-        <a href="#why-choose-us" class="scroll-down">
+        <a href="#about-us" class="scroll-down">
             <i class="fas fa-chevron-down"></i>
         </a>
     </div>
+
+    <section id="about-us" class="about-us" data-aos="fade-up">
+        <h2>About V28 Cyber</h2>
+        <p>At V28 Cyber, we bring years of experience in security and compliance to safeguard your digital assets. Our team of experts has worked across a diverse range of industries, from professional service, finance and legal to technology, giving us a unique perspective on the evolving cyber threat landscape. We pride ourselves on our ability to deliver tailored, cutting-edge solutions that not only protect your business but also empower it to thrive in the digital age. With V28 Cyber, you're not just getting a service provider; you're partnering with a team that's passionate about your security and committed to your success.</p>
+    </section>
 
     <section id="why-choose-us" class="section">
         <h2>Why Choose Us</h2>
@@ -269,41 +329,73 @@
         <h2>Our Services</h2>
         <div class="services">
             <div class="service">
+            <div>
                 <i class="fas fa-car icon"></i>
                 <h3>Cyber 'MOT'</h3>
                 <p>Comprehensive assessment of your cyber security posture.</p>
+            </div>
                 <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
             <div class="service">
+            <div>
                 <i class="fas fa-shield-alt icon"></i>
                 <h3>MS365 Hardening</h3>
                 <p>Enhance the security of your Microsoft 365 environment.</p>
+            </div>
                 <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
             <div class="service">
+            <div>
                 <i class="fas fa-tasks icon"></i>
                 <h3>Managed MS365</h3>
                 <p>Ongoing management and security for your Microsoft 365 suite.</p>
+            </div>
                 <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
             <div class="service">
+            <div>
                 <i class="fas fa-certificate icon"></i>
                 <h3>Cyber Essentials Consultancy</h3>
                 <p>Guide you through the Cyber Essentials certification process.</p>
+            </div>
                 <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
             <div class="service">
+            <div>
                 <i class="fas fa-users icon"></i>
                 <h3>Awareness Training</h3>
                 <p>Educate your team on best practices for cyber security.</p>
+            </div>
                 <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
             <div class="service">
+            <div>
                 <i class="fas fa-user-secret icon"></i>
                 <h3>Penetration Testing</h3>
                 <p>On-site or remote penetration testing and reporting services.</p>
+            </div>
                 <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
+        </div>
+    </section>
+
+    <section id="faq" class="faq" data-aos="fade-up">
+        <h2>Frequently Asked Questions</h2>
+        <div class="faq-item">
+            <div class="faq-question">What is Cyber Essentials?</div>
+            <div class="faq-answer">Cyber Essentials is a UK government-backed scheme that helps organizations protect themselves against common cyber attacks. It provides a clear statement of the basic controls all organizations should implement to mitigate the risk from common internet-based threats.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How often should we conduct a Cyber 'MOT'?</div>
+            <div class="faq-answer">We recommend conducting a Cyber 'MOT' at least annually. However, for organizations in high-risk industries or those experiencing rapid growth, more frequent assessments may be beneficial.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">What does MS365 hardening involve?</div>
+            <div class="faq-answer">MS365 hardening involves implementing security best practices to strengthen your Microsoft 365 environment. This includes configuring multi-factor authentication, setting up data loss prevention policies, enabling advanced threat protection, and more.</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-question">How long does a typical penetration test take?</div>
+            <div class="faq-answer">The duration of a penetration test can vary depending on the scope and complexity of your systems. Typically, a standard penetration test can take anywhere from a few days to a couple of weeks. We'll provide a more accurate timeline after assessing your specific needs.</div>
         </div>
     </section>
 
@@ -323,6 +415,7 @@
         <p>V28 Cyber &copy; <span id="year"></span></p>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script>
         document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -342,8 +435,22 @@
 
         document.querySelector('.scroll-down').addEventListener('click', (e) => {
             e.preventDefault();
-            document.querySelector('#why-choose-us').scrollIntoView({
+            document.querySelector('#about-us').scrollIntoView({
                 behavior: 'smooth'
+            });
+        });
+
+                // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+
+        // FAQ functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
             });
         });
     </script>
