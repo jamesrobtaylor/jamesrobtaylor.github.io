@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PowerShell Cheat Sheet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="cheatsheet-utils.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://images.unsplash.com/photo-1669069359293-be3000adb191?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: 735x919;
+            background-position: center;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed;
+        }
+        table tr {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        th {
+            background-color: #f2f2f2;
+            th:nth-child(1), td:nth-child(1) { width: 40%; }
+            th:nth-child(2), td:nth-child(2) { width: 40%; }
+            th:nth-child(3), td:nth-child(3) { width: 40%; }
+        }
+        code {
+            background-color: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: nowrap;
+        }
+        .example {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .copy-button {
+            margin-left: 10px;
+            padding: 2px 5px;
+            font-size: 12px;
+        }
+        .toggle-icon {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div w3-include-html="header.html"></div>
+
+<h1>PowerShell Cheat Sheet</h1>
+<p><a href="/toc.html" style="color: #1ca829">Return to TOC</a></p>
+<h2>Basic Commands</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Get-Location</code></td>
+            <td>Print working directory</td>
+            <td><code>Get-Location</code></td>
+        </tr>
+        <tr>
+            <td><code>Get-ChildItem</code></td>
+            <td>List directory contents</td>
+            <td><code>Get-ChildItem</code></td>
+        </tr>
+        <tr>
+            <td><code>Set-Location [path]</code></td>
+            <td>Change directory</td>
+            <td><code>Set-Location -Path C:\Users</code></td>
+        </tr>
+        <tr>
+            <td><code>Copy-Item [source] [destination]</code></td>
+            <td>Copy files or directories</td>
+            <td><code>Copy-Item -Path file.txt -Destination C:\Users</code></td>
+        </tr>
+        <tr>
+            <td><code>Move-Item [source] [destination]</code></td>
+            <td>Move or rename files or directories</td>
+            <td><code>Move-Item -Path oldname.txt -Destination newname.txt</code></td>
+        </tr>
+        <tr>
+            <td><code>Remove-Item [file]</code></td>
+            <td>Remove files</td>
+            <td><code>Remove-Item -Path file.txt</code></td>
+        </tr>
+        <tr>
+            <td><code>New-Item -ItemType File [file]</code></td>
+            <td>Create a new empty file</td>
+            <td><code>New-Item -ItemType File -Name newfile.txt</code></td>
+        </tr>
+        <tr>
+            <td><code>New-Item -ItemType Directory [directory]</code></td>
+            <td>Create new directory</td>
+            <td><code>New-Item -ItemType Directory -Name newdirectory</code></td>
+        </tr>
+        <tr>
+            <td><code>Remove-Item [directory]</code></td>
+            <td>Remove empty directory</td>
+            <td><code>Remove-Item -Path olddirectory</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>File Viewing and Editing</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Get-Content [file]</code></td>
+            <td>Display file content</td>
+            <td><code>Get-Content -Path file.txt</code></td>
+        </tr>
+        <tr>
+            <td><code>Set-Content [file] -Value [content]</code></td>
+            <td>Write content to a file</td>
+            <td><code>Set-Content -Path file.txt -Value "Hello, World!"</code></td>
+        </tr>
+        <tr>
+            <td><code>Add-Content [file] -Value [content]</code></td>
+            <td>Append content to a file</td>
+            <td><code>Add-Content -Path file.txt -Value "Hello, World!"</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>File Permissions</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Get-Acl [file]</code></td>
+            <td>Get file permissions</td>
+            <td><code>Get-Acl -Path file.txt</code></td>
+        </tr>
+        <tr>
+            <td><code>Set-Acl [file] -AclObject [acl]</code></td>
+            <td>Set file permissions</td>
+            <td><code>$acl = Get-Acl -Path file.txt; Set-Acl -Path file.txt -AclObject $acl</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Searching and Finding</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Get-ChildItem [directory] -Filter [filename]</code></td>
+            <td>Find files by name</td>
+            <td><code>Get-ChildItem -Path C:\Users -Filter "*.txt"</code></td>
+        </tr>
+        <tr>
+            <td><code>Select-String -Path [file] -Pattern [pattern]</code></td>
+            <td>Search for a pattern within files</td>
+            <td><code>Select-String -Path file.txt -Pattern "search term"</code></td>
+        </tr>
+        <tr>
+            <td><code>Get-Command [command]</code></td>
+            <td>Show the path of a command</td>
+            <td><code>Get-Command -Name Get-Process</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>System Information</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Get-ComputerInfo</code></td>
+            <td>Show all system information</td>
+            <td><code>Get-ComputerInfo</code></td>
+        </tr>
+        <tr>
+            <td><code>Get-Process</code></td>
+            <td>Display running processes</td>
+            <td><code>Get-Process</code></td>
+        </tr>
+        <tr>
+            <td><code>Get-Service</code></td>
+            <td>Display running services</td>
+            <td><code>Get-Service</code></td>
+        </tr>
+        <tr>
+            <td><code>Get-HotFix</code></td>
+            <td>Show installed updates</td>
+            <td><code>Get-HotFix</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Networking</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Test-Connection [host]</code></td>
+            <td>Send ICMP ECHO_REQUEST to network hosts</td>
+            <td><code>Test-Connection -ComputerName google.com</code></td>
+        </tr>
+        <tr>
+            <td><code>Get-NetIPAddress</code></td>
+            <td>Show IP addresses and network interfaces</td>
+            <td><code>Get-NetIPAddress</code></td>
+        </tr>
+        <tr>
+            <td><code>Invoke-WebRequest [url]</code></td>
+            <td>Download files from the web</td>
+            <td><code>Invoke-WebRequest -Uri http://example.com/file.zip -OutFile file.zip</code></td>
+        </tr>
+        <tr>
+            <td><code>Enter-PSSession -ComputerName [host]</code></td>
+            <td>Connect to a remote host via PowerShell Remoting</td>
+            <td><code>Enter-PSSession -ComputerName remotehost</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Package Management</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Get-Package</code></td>
+            <td>List installed packages</td>
+            <td><code>Get-Package</code></td>
+        </tr>
+        <tr>
+            <td><code>Install-Package [package]</code></td>
+            <td>Install a package</td>
+            <td><code>Install-Package -Name 7zip</code></td>
+        </tr>
+        <tr>
+            <td><code>Uninstall-Package [package]</code></td>
+            <td>Uninstall a package</td>
+            <td><code>Uninstall-Package -Name 7zip</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Disk and File System Management</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Get-Volume</code></td>
+            <td>List disk volumes</td>
+            <td><code>Get-Volume</code></td>
+        </tr>
+        <tr>
+            <td><code>Format-Volume -DriveLetter [letter]</code></td>
+            <td>Format a volume</td>
+            <td><code>Format-Volume -DriveLetter D</code></td>
+        </tr>
+        <tr>
+            <td><code>Check-FileSystem -DriveLetter [letter]</code></td>
+            <td>Check and repair a file system</td>
+            <td><code>Check-FileSystem -DriveLetter C</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Scripting and Automation</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>.\[script].ps1</code></td>
+            <td>Run a PowerShell script</td>
+            <td><code>.\script.ps1</code></td>
+        </tr>
+        <tr>
+            <td><code>Start-Job -ScriptBlock { [command] }</code></td>
+            <td>Run a command as a background job</td>
+            <td><code>Start-Job -ScriptBlock { Get-Process }</code></td>
+        </tr>
+        <tr>
+            <td><code>Get-Job</code></td>
+            <td>List background jobs</td>
+            <td><code>Get-Job</code></td>
+        </tr>
+        <tr>
+            <td><code>Stop-Job -Id [id]</code></td>
+            <td>Stop a background job</td>
+            <td><code>Stop-Job -Id 1</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Environment Variables</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Get-ChildItem Env:</code></td>
+            <td>List all environment variables</td>
+            <td><code>Get-ChildItem Env:</code></td>
+        </tr>
+        <tr>
+            <td><code>$Env:[VARIABLE]</code></td>
+            <td>Print value of a variable</td>
+            <td><code>$Env:PATH</code></td>
+        </tr>
+        <tr>
+            <td><code>$Env:[VARIABLE] = "[value]"</code></td>
+            <td>Set an environment variable</td>
+            <td><code>$Env:PATH = "C:\Program Files"</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>User and Group Management</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Get-LocalUser</code></td>
+            <td>List local users</td>
+            <td><code>Get-LocalUser</code></td>
+        </tr>
+        <tr>
+            <td><code>New-LocalUser -Name [user]</code></td>
+            <td>Add a new local user</td>
+            <td><code>New-LocalUser -Name newuser</code></td>
+        </tr>
+        <tr>
+            <td><code>Remove-LocalUser -Name [user]</code></td>
+            <td>Delete a local user</td>
+            <td><code>Remove-LocalUser -Name olduser</code></td>
+        </tr>
+        <tr>
+            <td><code>Get-LocalGroup</code></td>
+            <td>List local groups</td>
+            <td><code>Get-LocalGroup</code></td>
+        </tr>
+        <tr>
+            <td><code>Add-LocalGroupMember -Group [group] -Member [user]</code></td>
+            <td>Add user to group</td>
+            <td><code>Add-LocalGroupMember -Group "Administrators" -Member newuser</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Archive and Compression</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Compress-Archive -Path [path] -DestinationPath [archive.zip]</code></td>
+            <td>Create a zip archive</td>
+            <td><code>Compress-Archive -Path C:\Users\Documents -DestinationPath archive.zip</code></td>
+        </tr>
+        <tr>
+            <td><code>Expand-Archive -Path [archive.zip] -DestinationPath [path]</code></td>
+            <td>Extract a zip archive</td>
+            <td><code>Expand-Archive -Path archive.zip -DestinationPath C:\Users\Documents</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Miscellaneous</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>New-Alias [alias_name] [command]</code></td>
+            <td>Create a command alias</td>
+            <td><code>New-Alias ll Get-ChildItem</code></td>
+        </tr>
+        <tr>
+            <td><code>Get-History</code></td>
+            <td>Show command history</td>
+            <td><code>Get-History</code></td>
+        </tr>
+        <tr>
+            <td><code>Invoke-History -Id [id]</code></td>
+            <td>Run the last command again</td>
+            <td><code>Invoke-History -Id 1</code></td>
+        </tr>
+        <tr>
+            <td><code>Get-Help [command]</code></td>
+            <td>Show the manual for a command</td>
+            <td><code>Get-Help Get-ChildItem</code></td>
+        </tr>
+        <tr>
+            <td><code>Write-Output [text]</code></td>
+            <td>Print text to the terminal</td>
+            <td><code>Write-Output "Hello, World!"</code></td>
+        </tr>
+        <tr>
+            <td><code>Get-Date</code></td>
+            <td>Show current date and time</td>
+            <td><code>Get-Date</code></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
