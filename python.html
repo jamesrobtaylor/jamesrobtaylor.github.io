@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Cheat Sheet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="cheatsheet-utils.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://images.unsplash.com/photo-1554366909-5af975610ea6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed;
+        }
+
+        table tr {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        th:nth-child(1), td:nth-child(1) { width: 30%; }
+        th:nth-child(2), td:nth-child(2) { width: 40%; }
+        th:nth-child(3), td:nth-child(3) { width: 30%; }
+        code {
+            background-color: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: nowrap;
+        }
+        .example {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .copy-button {
+            margin-left: 10px;
+            padding: 2px 5px;
+            font-size: 12px;
+        }
+        .toggle-icon {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div w3-include-html="header.html"></div>
+
+<h1>Python Cheat Sheet</h1>
+<p><a href="https://ellienoyes.co.uk/toc.html" style="color: #1ca829;">Return to TOC</a></p>
+<h2>Basic Syntax</h2>
+<div class="example">
+    <code>
+        print("Hello, World!")
+    </code>
+</div>
+
+<h2>Variables and Data Types</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Data Type</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>int</code></td>
+            <td>Integer</td>
+            <td><code>x = 5</code></td>
+        </tr>
+        <tr>
+            <td><code>float</code></td>
+            <td>Floating-point number</td>
+            <td><code>y = 3.14</code></td>
+        </tr>
+        <tr>
+            <td><code>str</code></td>
+            <td>String</td>
+            <td><code>name = "Alice"</code></td>
+        </tr>
+        <tr>
+            <td><code>bool</code></td>
+            <td>Boolean</td>
+            <td><code>is_valid = True</code></td>
+        </tr>
+        <tr>
+            <td><code>list</code></td>
+            <td>List</td>
+            <td><code>fruits = ["apple", "banana", "cherry"]</code></td>
+        </tr>
+        <tr>
+            <td><code>tuple</code></td>
+            <td>Tuple</td>
+            <td><code>point = (1, 2)</code></td>
+        </tr>
+        <tr>
+            <td><code>dict</code></td>
+            <td>Dictionary</td>
+            <td><code>person = {"name": "Alice", "age": 25}</code></td>
+        </tr>
+        <tr>
+            <td><code>set</code></td>
+            <td>Set</td>
+            <td><code>colors = {"red", "green", "blue"}</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Control Flow</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Statement</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>if</code></td>
+            <td>Conditional statement</td>
+            <td><code>if x > 0:<br>&nbsp;&nbsp;&nbsp;&nbsp;print("Positive")</code></td>
+        </tr>
+        <tr>
+            <td><code>elif</code></td>
+            <td>Else if statement</td>
+            <td><code>elif x == 0:<br>&nbsp;&nbsp;&nbsp;&nbsp;print("Zero")</code></td>
+        </tr>
+        <tr>
+            <td><code>else</code></td>
+            <td>Else statement</td>
+            <td><code>else:<br>&nbsp;&nbsp;&nbsp;&nbsp;print("Negative")</code></td>
+        </tr>
+        <tr>
+            <td><code>for</code></td>
+            <td>For loop</td>
+            <td><code>for i in range(5):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(i)</code></td>
+        </tr>
+        <tr>
+            <td><code>while</code></td>
+            <td>While loop</td>
+            <td><code>while x > 0:<br>&nbsp;&nbsp;&nbsp;&nbsp;x -= 1</code></td>
+        </tr>
+        <tr>
+            <td><code>break</code></td>
+            <td>Break out of a loop</td>
+            <td><code>break</code></td>
+        </tr>
+        <tr>
+            <td><code>continue</code></td>
+            <td>Continue to the next iteration of a loop</td>
+            <td><code>continue</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Functions</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Function</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>def</code></td>
+            <td>Define a function</td>
+            <td><code>def greet(name):<br>&nbsp;&nbsp;&nbsp;&nbsp;print(f"Hello, {name}!")</code></td>
+        </tr>
+        <tr>
+            <td><code>return</code></td>
+            <td>Return a value from a function</td>
+            <td><code>return x + y</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Modules</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Import</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>import</code></td>
+            <td>Import a module</td>
+            <td><code>import math</code></td>
+        </tr>
+        <tr>
+            <td><code>from ... import ...</code></td>
+            <td>Import specific attributes from a module</td>
+            <td><code>from math import sqrt</code></td>
+        </tr>
+        <tr>
+            <td><code>as</code></td>
+            <td>Import a module with an alias</td>
+            <td><code>import numpy as np</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>File Handling</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Operation</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>open</code></td>
+            <td>Open a file</td>
+            <td><code>f = open("file.txt")</code></td>
+        </tr>
+        <tr>
+            <td><code>read</code></td>
+            <td>Read a file</td>
+            <td><code>content = f.read()</code></td>
+        </tr>
+        <tr>
+            <td><code>write</code></td>
+            <td>Write to a file</td>
+            <td><code>f.write("Hello, World!")</code></td>
+        </tr>
+        <tr>
+            <td><code>close</code></td>
+            <td>Close a file</td>
+            <td><code>f.close()</code></td>
+        </tr>
+        <tr>
+            <td><code>with</code></td>
+            <td>Context manager for file operations</td>
+            <td><code>with open("file.txt") as f:<br>&nbsp;&nbsp;&nbsp;&nbsp;content = f.read()</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Exceptions</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Statement</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>try</code></td>
+            <td>Try to execute a block of code</td>
+            <td><code>try:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(x)</code></td>
+        </tr>
+        <tr>
+            <td><code>except</code></td>
+            <td>Handle exceptions</td>
+            <td><code>except Exception as e:<br>&nbsp;&nbsp;&nbsp;&nbsp;print(e)</code></td>
+        </tr>
+        <tr>
+            <td><code>finally</code></td>
+            <td>Execute code regardless of exceptions</td>
+            <td><code>finally:<br>&nbsp;&nbsp;&nbsp;&nbsp;print("Done")</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Classes and Objects</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Statement</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>class</code></td>
+            <td>Define a class</td>
+            <td><code>class Dog:<br>&nbsp;&nbsp;&nbsp;&nbsp;def __init__(self, name):<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;self.name = name</code></td>
+        </tr>
+        <tr>
+            <td><code>__init__</code></td>
+            <td>Initialize an instance of a class</td>
+            <td><code>def __init__(self, name):<br>&nbsp;&nbsp;&nbsp;&nbsp;self.name = name</code></td>
+        </tr>
+        <tr>
+            <td><code>self</code></td>
+            <td>Reference to the instance of the class</td>
+            <td><code>self.name = name</code></td>
+        </tr>
+        <tr>
+            <td><code>method</code></td>
+            <td>Define a method in a class</td>
+            <td><code>def bark(self):<br>&nbsp;&nbsp;&nbsp;&nbsp;print("Woof!")</code></td>
+        </tr>
+        <tr>
+            <td><code>object</code></td>
+            <td>Create an instance of a class</td>
+            <td><code>my_dog = Dog("Buddy")</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>List Comprehensions</h2>
+<div class="example">
+    <code>
+        squares = [x**2 for x in range(10)]
+    </code>
+</div>
+
+<h2>Common Libraries</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Library</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>math</code></td>
+            <td>Mathematical functions</td>
+            <td><code>import math<br>math.sqrt(16)</code></td>
+        </tr>
+        <tr>
+            <td><code>random</code></td>
+            <td>Generate random numbers</td>
+            <td><code>import random<br>random.randint(1, 10)</code></td>
+        </tr>
+        <tr>
+            <td><code>datetime</code></td>
+            <td>Manipulate dates and times</td>
+            <td><code>import datetime<br>datetime.datetime.now()</code></td>
+        </tr>
+        <tr>
+            <td><code>os</code></td>
+            <td>Interacting with the operating system</td>
+            <td><code>import os<br>os.getcwd()</code></td>
+        </tr>
+        <tr>
+            <td><code>sys</code></td>
+            <td>System-specific parameters and functions</td>
+            <td><code>import sys<br>sys.exit()</code></td>
+        </tr>
+        <tr>
+            <td><code>json</code></td>
+            <td>JSON encoder and decoder</td>
+            <td><code>import json<br>json.dumps({"name": "Alice", "age": 25})</code></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
