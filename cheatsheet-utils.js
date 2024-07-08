@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function() {
     headers.forEach(header => {
         header.innerHTML += ' <span class="toggle-icon">[-]</span>';
         header.style.cursor = 'pointer';
-        header.nextElementSibling.style.display = 'block';
+        header.nextElementSibling.style.display = 'none';
         header.addEventListener('click', function() {
             toggleSection(this);
         });
