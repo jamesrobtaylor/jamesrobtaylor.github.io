@@ -194,7 +194,21 @@
             justify-content: space-around;
         }
 
-        .reason, .service {
+        .reason {
+            background-color: var(--dark-green);
+            padding: 1.5rem;
+            margin: 1rem;
+            border-radius: 10px;
+            width: calc(33.33% - 2rem);
+            transition: transform 0.3s ease;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100px; /* Adjust this value as needed */
+        }
+
+        .service {
             background-color: var(--dark-green);
             padding: 1.5rem;
             margin: 1rem;
