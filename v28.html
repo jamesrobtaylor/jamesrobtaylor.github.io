@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>V28 Cyber - Your Cyber Defense Partner</title>
+    <style>
+        :root {
+            --light-green: #5cd782;
+            --dark-green: #137a32;
+            --black: #000000;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--black);
+            color: var(--white);
+        }
+
+        .banner {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .banner video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -1;
+        }
+
+        .banner-content {
+            text-align: center;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .banner h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .banner p {
+            font-size: 1.5rem;
+        }
+
+        .section {
+            padding: 4rem 2rem;
+        }
+
+        .section h2 {
+            color: var(--light-green);
+            margin-bottom: 2rem;
+        }
+
+        .why-choose-us, .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+
+        .reason, .service {
+            background-color: var(--dark-green);
+            padding: 1.5rem;
+            margin: 1rem;
+            border-radius: 10px;
+            width: calc(33.33% - 2rem);
+            transition: transform 0.3s ease;
+        }
+
+        .reason:hover, .service:hover {
+            transform: scale(1.05);
+        }
+
+        .callback-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .callback-form input, .callback-form textarea {
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 1rem;
+            background-color: var(--black);
+            color: var(--white);
+            border: 1px solid var(--light-green);
+        }
+
+        .callback-form button {
+            background-color: var(--light-green);
+            color: var(--black);
+            padding: 0.5rem 1rem;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .callback-form button:hover {
+            background-color: var(--dark-green);
+            color: var(--white);
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: var(--dark-green);
+        }
+
+        @media (max-width: 768px) {
+            .reason, .service {
+                width: calc(50% - 2rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .reason, .service {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <video autoplay muted loop>
+            <source src="https://cdn.pixabay.com/video/2022/12/13/142815-780943566_large.mp4" type="video/mp4">
+        </video>
+        <div class="banner-content">
+            <h1>V28 Cyber</h1>
+            <p>Fortify Your Digital Fortress: Unbreakable Cyber Defense Starts Here</p>
+        </div>
+    </div>
+
+    <section id="why-choose-us" class="section">
+        <h2>Why Choose Us</h2>
+        <div class="why-choose-us">
+            <div class="reason">
+                <h3>Expertise</h3>
+                <p>Our team of cyber security experts brings years of experience to protect your digital assets.</p>
+            </div>
+            <div class="reason">
+                <h3>Customized Solutions</h3>
+                <p>We tailor our services to meet your specific needs and security requirements.</p>
+            </div>
+            <div class="reason">
+                <h3>24/7 Support</h3>
+                <p>Round-the-clock monitoring and support to ensure your systems are always protected.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="section">
+        <h2>Our Services</h2>
+        <div class="services">
+            <div class="service">
+                <h3>Cyber MOT</h3>
+                <p>Comprehensive assessment of your cyber security posture.</p>
+            </div>
+            <div class="service">
+                <h3>MS365 Hardening</h3>
+                <p>Enhance the security of your Microsoft 365 environment.</p>
+            </div>
+            <div class="service">
+                <h3>Managed MS365</h3>
+                <p>Ongoing management and security for your Microsoft 365 suite.</p>
+            </div>
+            <div class="service">
+                <h3>Cyber Essentials Consultancy</h3>
+                <p>Guide you through the Cyber Essentials certification process.</p>
+            </div>
+            <div class="service">
+                <h3>Awareness Training</h3>
+                <p>Educate your team on best practices for cyber security.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="callback" class="section">
+        <h2>Schedule a Callback</h2>
+        <form class="callback-form">
+            <input type="text" placeholder="Name" required>
+            <input type="email" placeholder="Email" required>
+            <input type="date" required>
+            <input type="time" required>
+            <textarea placeholder="Message" rows="4" required></textarea>
+            <button type="submit">Request Callback</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>V28 Cyber &copy; <span id="year"></span></p>
+    </footer>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        document.querySelectorAll('.reason, .service').forEach(item => {
+            item.addEventListener('mouseenter', () => {
+                item.style.transform = 'scale(1.05)';
+            });
+            item.addEventListener('mouseleave', () => {
+                item.style.transform = 'scale(1)';
+            });
+        });
+
+        document.querySelector('.callback-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your request. We will contact you soon!');
+        });
+    </script>
+</body>
+</html>
