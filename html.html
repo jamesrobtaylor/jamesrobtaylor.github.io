@@ -4,12 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HTML Cheat Sheet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="cheatsheet-utils.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-image: url('https://images.unsplash.com/photo-1550418772-dab2859bd5f4?q=80&w=1898&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-image: url('https://images.unsplash.com/photo-1524337676612-18e579b62f4a?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
             background-size: cover;
             background-position: center;
         }
@@ -20,6 +23,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            table-layout: fixed;
         }
 
         table tr {
@@ -29,14 +33,21 @@
             padding: 10px;
             border: 1px solid #ddd;
             text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         th {
             background-color: #f2f2f2;
+            th:nth-child(1), td:nth-child(1) { width: 40%; }
+            th:nth-child(2), td:nth-child(2) { width: 40%; }
+            th:nth-child(3), td:nth-child(3) { width: 40%; }
         }
         code {
             background-color: #e4e4e4;
             padding: 2px 4px;
             border-radius: 4px;
+            font-family: monospace;
+            white-space: nowrap;
         }
         .example {
             background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
@@ -44,31 +55,16 @@
             border: 1px solid #ddd;
             margin-bottom: 20px;
         }
-    </style>
-     <script>
-        function includeHTML() {
-            var z, i, elmnt, file, xhttp;
-            z = document.getElementsByTagName("*");
-            for (i = 0; i < z.length; i++) {
-                elmnt = z[i];
-                file = elmnt.getAttribute("w3-include-html");
-                if (file) {
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            elmnt.innerHTML = this.responseText;
-                            elmnt.removeAttribute("w3-include-html");
-                            includeHTML();
-                        }
-                    }
-                    xhttp.open("GET", file, true);
-                    xhttp.send();
-                    return;
-                }
-            }
+        .copy-button {
+            margin-left: 10px;
+            padding: 2px 5px;
+            font-size: 12px;
         }
-        document.addEventListener("DOMContentLoaded", includeHTML);
-    </script>
+        .toggle-icon {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -77,7 +73,6 @@
 <h1>HTML Cheat Sheet</h1>
 <p><a href="https://ellienoyes.co.uk/toc.html" style="color: #1ca829;">Return to TOC</a></p>
 <h2>Basic Structure</h2>
-    
 <div class="example">
     <code>
         &lt;!DOCTYPE html&gt;<br>
@@ -100,28 +95,34 @@
         <tr>
             <th>Element</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>&lt;title&gt;</code></td>
             <td>Defines the title of the document</td>
+            <td><code>&lt;title&gt;My Webpage&lt;/title&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;meta&gt;</code></td>
             <td>Defines metadata about the document</td>
+            <td><code>&lt;meta charset="UTF-8"&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;link&gt;</code></td>
             <td>Defines the relationship between the document and an external resource (most used to link stylesheets)</td>
+            <td><code>&lt;link rel="stylesheet" href="styles.css"&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;style&gt;</code></td>
             <td>Defines style information for the document</td>
+            <td><code>&lt;style&gt;body {font-family: Arial;}&lt;/style&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;script&gt;</code></td>
             <td>Defines a client-side script</td>
+            <td><code>&lt;script src="script.js"&gt;&lt;/script&gt;</code></td>
         </tr>
     </tbody>
 </table>
@@ -132,64 +133,79 @@
         <tr>
             <th>Element</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>&lt;p&gt;</code></td>
             <td>Defines a paragraph</td>
+            <td><code>&lt;p&gt;This is a paragraph.&lt;/p&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;br&gt;</code></td>
             <td>Inserts a single line break</td>
+            <td><code>&lt;br&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;hr&gt;</code></td>
             <td>Defines a thematic change in the content</td>
+            <td><code>&lt;hr&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;b&gt;</code></td>
             <td>Defines bold text</td>
+            <td><code>&lt;b&gt;This text is bold.&lt;/b&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;i&gt;</code></td>
             <td>Defines italic text</td>
+            <td><code>&lt;i&gt;This text is italic.&lt;/i&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;u&gt;</code></td>
             <td>Defines underlined text</td>
+            <td><code>&lt;u&gt;This text is underlined.&lt;/u&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;strong&gt;</code></td>
             <td>Defines important text</td>
+            <td><code>&lt;strong&gt;This text is important.&lt;/strong&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;em&gt;</code></td>
             <td>Defines emphasized text</td>
+            <td><code>&lt;em&gt;This text is emphasized.&lt;/em&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;mark&gt;</code></td>
             <td>Defines marked/highlighted text</td>
+            <td><code>&lt;mark&gt;This text is highlighted.&lt;/mark&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;small&gt;</code></td>
             <td>Defines smaller text</td>
+            <td><code>&lt;small&gt;This text is small.&lt;/small&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;del&gt;</code></td>
             <td>Defines deleted text</td>
+            <td><code>&lt;del&gt;This text is deleted.&lt;/del&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;ins&gt;</code></td>
             <td>Defines inserted text</td>
+            <td><code>&lt;ins&gt;This text is inserted.&lt;/ins&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;sub&gt;</code></td>
             <td>Defines subscripted text</td>
+            <td><code>&lt;sub&gt;H&lt;sub&gt;2&lt;/sub&gt;O&lt;/sub&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;sup&gt;</code></td>
             <td>Defines superscripted text</td>
+            <td><code>&lt;sup&gt;E=mc&lt;sup&gt;2&lt;/sup&gt;&lt;/sup&gt;</code></td>
         </tr>
     </tbody>
 </table>
@@ -269,32 +285,39 @@
         <tr>
             <th>Element</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>&lt;header&gt;</code></td>
-                        <td>Defines a header for a document or section</td>
+            <td>Defines a header for a document or section</td>
+            <td><code>&lt;header&gt;This is a header.&lt;/header&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;nav&gt;</code></td>
             <td>Defines a set of navigation links</td>
+            <td><code>&lt;nav&gt;&lt;a href="#"&gt;Home&lt;/a&gt; | &lt;a href="#"&gt;About&lt;/a&gt;&lt;/nav&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;section&gt;</code></td>
             <td>Defines a section in a document</td>
+            <td><code>&lt;section&gt;This is a section.&lt;/section&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;article&gt;</code></td>
             <td>Defines an independent, self-contained content</td>
+            <td><code>&lt;article&gt;This is an article.&lt;/article&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;aside&gt;</code></td>
             <td>Defines content aside from the content it is placed in</td>
+            <td><code>&lt;aside&gt;This is an aside.&lt;/aside&gt;</code></td>
         </tr>
         <tr>
             <td><code>&lt;footer&gt;</code></td>
             <td>Defines a footer for a document or section</td>
+            <td><code>&lt;footer&gt;This is a footer.&lt;/footer&gt;</code></td>
         </tr>
     </tbody>
 </table>
