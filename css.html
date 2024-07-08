@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Cheat Sheet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="cheatsheet-utils.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://images.unsplash.com/photo-1622542795979-1a7b6e74b46a?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed;
+        }
+
+        table tr {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        th:nth-child(1), td:nth-child(1) { width: 30%; }
+        th:nth-child(2), td:nth-child(2) { width: 40%; }
+        th:nth-child(3), td:nth-child(3) { width: 30%; }
+        code {
+            background-color: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: nowrap;
+        }
+        .example {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .copy-button {
+            margin-left: 10px;
+            padding: 2px 5px;
+            font-size: 12px;
+        }
+        .toggle-icon {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div w3-include-html="header.html"></div>
+
+<h1>CSS Cheat Sheet</h1>
+<p><a href="https://ellienoyes.co.uk/toc.html" style="color: #1ca829;">Return to TOC</a></p>
+<h2>Basic Syntax</h2>
+<div class="example">
+    <code>
+        selector {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;property: value;<br>
+        }
+    </code>
+</div>
+
+<h2>Selectors</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Selector</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>element</code></td>
+            <td>Selects all elements of the specified type</td>
+            <td><code>p { color: red; }</code></td>
+        </tr>
+        <tr>
+            <td><code>#id</code></td>
+            <td>Selects the element with the specified id</td>
+            <td><code>#header { font-size: 20px; }</code></td>
+        </tr>
+        <tr>
+            <td><code>.class</code></td>
+            <td>Selects all elements with the specified class</td>
+            <td><code>.intro { text-align: center; }</code></td>
+        </tr>
+        <tr>
+            <td><code>*</code></td>
+            <td>Selects all elements</td>
+            <td><code>* { margin: 0; }</code></td>
+        </tr>
+        <tr>
+            <td><code>element, element</code></td>
+            <td>Selects all specified elements</td>
+            <td><code>h1, h2 { margin: 10px; }</code></td>
+        </tr>
+        <tr>
+            <td><code>element element</code></td>
+            <td>Selects all elements inside another element</td>
+            <td><code>div p { color: blue; }</code></td>
+        </tr>
+        <tr>
+            <td><code>element>element</code></td>
+            <td>Selects direct child elements</td>
+            <td><code>ul>li { list-style: none; }</code></td>
+        </tr>
+        <tr>
+            <td><code>element+element</code></td>
+            <td>Selects the next sibling element</td>
+            <td><code>h1+p { margin-top: 0; }</code></td>
+        </tr>
+        <tr>
+            <td><code>[attribute]</code></td>
+            <td>Selects elements with the specified attribute</td>
+            <td><code>input[type="text"] { width: 100%; }</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Text</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>color</code></td>
+            <td>Sets the color of the text</td>
+            <td><code>color: blue;</code></td>
+        </tr>
+        <tr>
+            <td><code>text-align</code></td>
+            <td>Aligns the text</td>
+            <td><code>text-align: center;</code></td>
+        </tr>
+        <tr>
+            <td><code>text-decoration</code></td>
+            <td>Sets the decoration of the text</td>
+            <td><code>text-decoration: underline;</code></td>
+        </tr>
+        <tr>
+            <td><code>text-transform</code></td>
+            <td>Controls the capitalization of the text</td>
+            <td><code>text-transform: uppercase;</code></td>
+        </tr>
+        <tr>
+            <td><code>font-family</code></td>
+            <td>Sets the font of the text</td>
+            <td><code>font-family: Arial, sans-serif;</code></td>
+        </tr>
+        <tr>
+            <td><code>font-size</code></td>
+            <td>Sets the size of the text</td>
+            <td><code>font-size: 16px;</code></td>
+        </tr>
+        <tr>
+            <td><code>font-weight</code></td>
+            <td>Sets the weight of the text</td>
+            <td><code>font-weight: bold;</code></td>
+        </tr>
+        <tr>
+            <td><code>line-height</code></td>
+            <td>Sets the height of each line of text</td>
+            <td><code>line-height: 1.5;</code></td>
+        </tr>
+        <tr>
+            <td><code>letter-spacing</code></td>
+            <td>Sets the space between characters</td>
+            <td><code>letter-spacing: 2px;</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Box Model</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>width</code></td>
+            <td>Sets the width of an element</td>
+            <td><code>width: 100px;</code></td>
+        </tr>
+        <tr>
+            <td><code>height</code></td>
+            <td>Sets the height of an element</td>
+            <td><code>height: 100px;</code></td>
+        </tr>
+        <tr>
+            <td><code>padding</code></td>
+            <td>Sets the padding inside an element</td>
+            <td><code>padding: 20px;</code></td>
+        </tr>
+        <tr>
+            <td><code>margin</code></td>
+            <td>Sets the margin outside an element</td>
+            <td><code>margin: 20px;</code></td>
+        </tr>
+        <tr>
+            <td><code>border</code></td>
+            <td>Sets the border around an element</td>
+            <td><code>border: 1px solid black;</code></td>
+        </tr>
+        <tr>
+            <td><code>box-sizing</code></td>
+            <td>Defines how the width and height of an element are calculated</td>
+            <td><code>box-sizing: border-box;</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Backgrounds</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>background-color</code></td>
+            <td>Sets the background color of an element</td>
+            <td><code>background-color: lightblue;</code></td>
+        </tr>
+        <tr>
+            <td><code>background-image</code></td>
+            <td>Sets the background image of an element</td>
+            <td><code>background-image: url('image.jpg');</code></td>
+        </tr>
+        <tr>
+            <td><code>background-repeat</code></td>
+            <td>Sets if/how the background image will be repeated</td>
+            <td><code>background-repeat: no-repeat;</code></td>
+        </tr>
+        <tr>
+            <td><code>background-size</code></td>
+            <td>Sets the size of the background image</td>
+            <td><code>background-size: cover;</code></td>
+        </tr>
+        <tr>
+            <td><code>background-position</code></td>
+            <td>Sets the starting position of the background image</td>
+            <td><code>background-position: center;</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Positioning</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>position</code></td>
+            <td>Sets the type of positioning for an element</td>
+            <td><code>position: relative;</code></td>
+        </tr>
+        <tr>
+            <td><code>top</code></td>
+            <td>Sets the top position of an element</td>
+            <td><code>top: 10px;</code></td>
+        </tr>
+        <tr>
+            <td><code>bottom</code></td>
+            <td>Sets the bottom position of an element</td>
+            <td><code>bottom: 10px;</code></td>
+        </tr>
+        <tr>
+            <td><code>left</code></td>
+            <td>Sets the left position of an element</td>
+            <td><code>left: 10px;</code></td>
+        </tr>
+        <tr>
+            <td><code>right</code></td>
+            <td>Sets the right position of an element</td>
+            <td><code>right: 10px;</code></td>
+        </tr>
+        <tr>
+            <td><code>z-index</code></td>
+            <td>Sets the stack order of an element</td>
+            <td><code>z-index: 1;</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Flexbox</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>display</code></td>
+            <td>Defines a flex container</td>
+            <td><code>display: flex;</code></td>
+        </tr>
+        <tr>
+            <td><code>flex-direction</code></td>
+            <td>Defines the direction of the flex items</td>
+            <td><code>flex-direction: row;</code></td>
+        </tr>
+        <tr>
+            <td><code>justify-content</code></td>
+            <td>Aligns flex items along the main axis</td>
+            <td><code>justify-content: center;</code></td>
+        </tr>
+        <tr>
+            <td><code>align-items</code></td>
+            <td>Aligns flex items along the cross axis</td>
+            <td><code>align-items: center;</code></td>
+        </tr>
+        <tr>
+            <td><code>flex-wrap</code></td>
+            <td>Specifies whether flex items should wrap</td>
+            <td><code>flex-wrap: wrap;</code></td>
+        </tr>
+        <tr>
+            <td><code>flex</code></td>
+            <td>Specifies how a flex item will grow or shrink</td>
+            <td><code>flex: 1;</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Grid</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>display</code></td>
+            <td>Defines a grid container</td>
+            <td><code>display: grid;</code></td>
+        </tr>
+        <tr>
+            <td><code>grid-template-columns</code></td>
+            <td>Defines the columns of the grid</td>
+            <td><code>grid-template-columns: 1fr 2fr;</code></td>
+        </tr>
+        <tr>
+            <td><code>grid-template-rows</code></td>
+            <td>Defines the rows of the grid</td>
+            <td><code>grid-template-rows: auto 100px;</code></td>
+        </tr>
+        <tr>
+            <td><code>grid-column-gap</code></td>
+            <td>Sets the gap between columns</td>
+            <td><code>grid-column-gap: 10px;</code></td>
+        </tr>
+        <tr>
+            <td><code>grid-row-gap</code></td>
+            <td>Sets the gap between rows</td>
+            <td><code>grid-row-gap: 10px;</code></td>
+        </tr>
+        <tr>
+            <td><code>grid-area</code></td>
+            <td>Specifies a grid item’s size and location</td>
+            <td><code>grid-area: 1 / 1 / 2 / 3;</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Animations</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>@keyframes</code></td>
+            <td>Defines an animation</td>
+            <td><code>@keyframes mymove {<br>&nbsp;&nbsp;&nbsp;&nbsp;from {top: 0px;}<br>&nbsp;&nbsp;&nbsp;&nbsp;to {top: 200px;}<br>}</code></td>
+        </tr>
+        <tr>
+            <td><code>animation-name</code></td>
+            <td>Specifies the name of the animation</td>
+            <td><code>animation-name: mymove;</code></td>
+        </tr>
+        <tr>
+            <td><code>animation-duration</code></td>
+            <td>Specifies the duration of the animation</td>
+            <td><code>animation-duration: 5s;</code></td>
+        </tr>
+        <tr>
+            <td><code>animation-timing-function</code></td>
+            <td>Specifies the timing of the animation</td>
+            <td><code>animation-timing-function: ease;</code></td>
+        </tr>
+        <tr>
+            <td><code>animation-delay</code></td>
+            <td>Specifies a delay before the animation starts</td>
+            <td><code>animation-delay: 2s;</code></td>
+        </tr>
+        <tr>
+            <td><code>animation-iteration-count</code></td>
+            <td>Specifies the number of times the animation will run</td>
+            <td><code>animation-iteration-count: infinite;</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Transforms</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Property</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>transform</code></td>
+            <td>Applies a 2D or 3D transformation to an element</td>
+            <td><code>transform: rotate(45deg);</code></td>
+        </tr>
+        <tr>
+            <td><code>transform-origin</code></td>
+            <td>Sets the origin for the transformation</td>
+            <td><code>transform-origin: center;</code></td>
+        </tr>
+        <tr>
+            <td><code>scale</code></td>
+            <td>Scales an element</td>
+            <td><code>transform: scale(1.5);</code></td>
+        </tr>
+        <tr>
+            <td><code>translate</code></td>
+            <td>Moves an element</td>
+            <td><code>transform: translate(50px, 100px);</code></td>
+        </tr>
+        <tr>
+            <td><code>rotate</code></td>
+            <td>Rotates an element</td>
+            <td><code>transform: rotate(30deg);</code></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
