@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>V28 Cyber - Your Cyber Defense Partner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
             --light-green: #1c9582;
@@ -22,6 +23,42 @@
         body {
             background-color: var(--black);
             color: var(--white);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo img {
+            height: 50px;
+        }
+
+        nav ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-left: 1rem;
+        }
+
+        nav ul li a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: var(--light-green);
         }
 
         .banner {
@@ -60,6 +97,29 @@
             font-size: 1.5rem;
         }
 
+        .scroll-down {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            color: var(--white);
+            cursor: pointer;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: translateX(-50%) scale(1);
+            }
+            50% {
+                transform: translateX(-50%) scale(1.1);
+            }
+            100% {
+                transform: translateX(-50%) scale(1);
+            }
+        }
+
         .section {
             padding: 4rem 2rem;
         }
@@ -67,6 +127,7 @@
         .section h2 {
             color: var(--light-green);
             margin-bottom: 2rem;
+            text-align: center;
         }
 
         .why-choose-us, .services {
@@ -82,10 +143,31 @@
             border-radius: 10px;
             width: calc(33.33% - 2rem);
             transition: transform 0.3s ease;
+            text-align: center;
         }
 
         .reason:hover, .service:hover {
             transform: scale(1.05);
+        }
+
+        .icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .enquire-btn {
+            background-color: var(--light-green);
+            color: var(--black);
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
+
+        .enquire-btn:hover {
+            background-color: var(--white);
         }
 
         .callback-form {
@@ -136,6 +218,19 @@
     </style>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <img src="https://www.360businesslaw.com/wp-content/uploads/2024/07/v28_logo_techy_generic.png" alt="V28 Cyber Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#why-choose-us">Why Choose Us</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#callback">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div class="banner">
         <video autoplay muted loop>
             <source src="https://cdn.pixabay.com/video/2022/12/13/142815-780943566_large.mp4" type="video/mp4">
@@ -144,20 +239,26 @@
             <h1>V28 Cyber</h1>
             <p>Unbreakable Cyber Defense Starts Here</p>
         </div>
+        <a href="#why-choose-us" class="scroll-down">
+            <i class="fas fa-chevron-down"></i>
+        </a>
     </div>
 
     <section id="why-choose-us" class="section">
-        <h2 style="text-align: center;">Why Choose Us</h2>
+        <h2>Why Choose Us</h2>
         <div class="why-choose-us">
             <div class="reason">
+                <i class="fas fa-lightbulb icon"></i>
                 <h3>Expertise</h3>
                 <p>Our team of cyber security experts brings years of experience to protect your digital assets.</p>
             </div>
             <div class="reason">
+                <i class="fas fa-cogs icon"></i>
                 <h3>Customized Solutions</h3>
                 <p>We tailor our services to meet your specific needs and security requirements.</p>
             </div>
             <div class="reason">
+                <i class="fas fa-headset icon"></i>
                 <h3>24/7 Support</h3>
                 <p>Round-the-clock monitoring and support to ensure your systems are always protected.</p>
             </div>
@@ -165,37 +266,49 @@
     </section>
 
     <section id="services" class="section">
-        <h2 style="text-align: center;">Our Services</h2>
+        <h2>Our Services</h2>
         <div class="services">
             <div class="service">
+                <i class="fas fa-car icon"></i>
                 <h3>Cyber 'MOT'</h3>
                 <p>Comprehensive assessment of your cyber security posture.</p>
+                <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
             <div class="service">
+                <i class="fas fa-shield-alt icon"></i>
                 <h3>MS365 Hardening</h3>
                 <p>Enhance the security of your Microsoft 365 environment.</p>
+                <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
             <div class="service">
+                <i class="fas fa-tasks icon"></i>
                 <h3>Managed MS365</h3>
                 <p>Ongoing management and security for your Microsoft 365 suite.</p>
+                <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
             <div class="service">
+                <i class="fas fa-certificate icon"></i>
                 <h3>Cyber Essentials Consultancy</h3>
                 <p>Guide you through the Cyber Essentials certification process.</p>
+                <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
             <div class="service">
+                <i class="fas fa-users icon"></i>
                 <h3>Awareness Training</h3>
                 <p>Educate your team on best practices for cyber security.</p>
+                <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
             <div class="service">
+                <i class="fas fa-user-secret icon"></i>
                 <h3>Penetration Testing</h3>
                 <p>On-site or remote penetration testing and reporting services.</p>
+                <a href="#callback" class="enquire-btn">Enquire</a>
             </div>
         </div>
     </section>
 
     <section id="callback" class="section">
-        <h2 style="text-align: center;">Schedule a Callback</h2>
+        <h2>Schedule a Callback</h2>
         <form class="callback-form">
             <input type="text" placeholder="Name" required>
             <input type="email" placeholder="Email" required>
@@ -225,6 +338,13 @@
         document.querySelector('.callback-form').addEventListener('submit', (e) => {
             e.preventDefault();
             alert('Thank you for your request. We will contact you soon!');
+        });
+
+        document.querySelector('.scroll-down').addEventListener('click', (e) => {
+            e.preventDefault();
+            document.querySelector('#why-choose-us').scrollIntoView({
+                behavior: 'smooth'
+            });
         });
     </script>
 </body>
