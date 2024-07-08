@@ -21,6 +21,10 @@
             font-family: Arial, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background-color: var(--black);
             color: var(--white);
@@ -71,7 +75,6 @@
             margin: 4rem auto; /* Center the divider with auto margins on the left and right */
             animation: pulse-hr 2s infinite; /* Apply the pulsing animation */
         }
-
 
         h1 {
             font-size: 3rem;
@@ -179,7 +182,9 @@
 
         .section {
             padding: 2rem 1rem;
+            padding-top: 4rem; /* Add padding to account for the fixed header */
             background-color: rgba(0, 0, 0, 0.7); /* Optional: Add a background color to sections for readability */
+            scroll-margin-top: 60px; /* Offset for fixed header */
         }
 
         .section h2 {
@@ -240,7 +245,7 @@
 
         .enquire-btn {
             background-color: var(--white);
-            color: var(--black);
+            color: var (--black);
             padding: 0.5rem 1rem;
             border: none;
             border-radius: 5px;
@@ -271,7 +276,7 @@
 
         .callback-form button {
             background-color: var(--light-green);
-            color: var(--black);
+            color: var (--black);
             padding: 0.5rem 1rem;
             border: none;
             cursor: pointer;
@@ -280,7 +285,7 @@
         
         .callback-form button:hover {
             background-color: var(--dark-green);
-            color: var(--white);
+            color: var (--white);
         }
 
         .about-us {
@@ -315,7 +320,7 @@
 
         .faq-question {
             background-color: var(--white);
-            color: var(--light-green);
+            color: var (--light-green);
             padding: 1rem;
             cursor: pointer;
             border-radius: 5px;
@@ -335,7 +340,7 @@
         footer {
             text-align: center;
             padding: 1rem;
-            background-color: var(--dark-green);
+            background-color: var (--dark-green);
         }
 
         @media (max-width: 768px) {
@@ -399,10 +404,6 @@
                     <h3>24/7 Support</h3>
                     <p>Round-the-clock monitoring and support to ensure your systems are always protected.</p>
                 </div>
-            </div>
-                <a href="#about-us" class="scroll-down">
-                    <i class="fas fa-chevron-down"></i>
-                </a>
             </div>
         </section>
 
@@ -578,6 +579,22 @@
                 } else {
                     answer.style.display = 'none';
                     icon.className = 'fas fa-plus';
+                }
+            });
+        });
+
+        document.querySelectorAll('nav ul li a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href').substring(1);
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 60, // Adjust this value based on your header height
+                        behavior: 'smooth'
+                    });
                 }
             });
         });
