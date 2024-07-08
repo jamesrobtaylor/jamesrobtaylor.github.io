@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Cheat Sheet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="cheatsheet-utils.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://images.unsplash.com/photo-1637682184683-74e6d34ed72d?q=80&w=2127&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed;
+        }
+
+        table tr {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        th:nth-child(1), td:nth-child(1) { width: 30%; }
+        th:nth-child(2), td:nth-child(2) { width: 40%; }
+        th:nth-child(3), td:nth-child(3) { width: 30%; }
+        code {
+            background-color: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: nowrap;
+        }
+        .example {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+        .copy-button {
+            margin-left: 10px;
+            padding: 2px 5px;
+            font-size: 12px;
+        }
+        .toggle-icon {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div w3-include-html="header.html"></div>
+
+<h1>JavaScript Cheat Sheet</h1>
+<p><a href="https://ellienoyes.co.uk/toc.html" style="color: #1ca829;">Return to TOC</a></p>
+
+<h2>Basic Syntax</h2>
+<div class="example">
+    <code>
+        console.log("Hello, World!");
+    </code>
+</div>
+
+<h2>Variables and Data Types</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Data Type</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>var</code></td>
+            <td>Declares a variable</td>
+            <td><code>var x = 5;</code></td>
+        </tr>
+        <tr>
+            <td><code>let</code></td>
+            <td>Declares a block-scoped variable</td>
+            <td><code>let y = 3.14;</code></td>
+        </tr>
+        <tr>
+            <td><code>const</code></td>
+            <td>Declares a block-scoped, read-only constant</td>
+            <td><code>const name = "Alice";</code></td>
+        </tr>
+        <tr>
+            <td><code>string</code></td>
+            <td>Represents a sequence of characters</td>
+            <td><code>let message = "Hello";</code></td>
+        </tr>
+        <tr>
+            <td><code>number</code></td>
+            <td>Represents both integer and floating-point numbers</td>
+            <td><code>let count = 42;</code></td>
+        </tr>
+        <tr>
+            <td><code>boolean</code></td>
+            <td>Represents either true or false</td>
+            <td><code>let isActive = true;</code></td>
+        </tr>
+        <tr>
+            <td><code>array</code></td>
+            <td>Represents a list of values</td>
+            <td><code>let colors = ["red", "green", "blue"];</code></td>
+        </tr>
+        <tr>
+            <td><code>object</code></td>
+            <td>Represents an instance of a class</td>
+            <td><code>let person = {name: "Alice", age: 25};</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Control Flow</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Statement</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>if</code></td>
+            <td>Conditional statement</td>
+            <td><code>if (x > 0) {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Positive");<br>}</code></td>
+        </tr>
+        <tr>
+            <td><code>else if</code></td>
+            <td>Else if statement</td>
+            <td><code>else if (x == 0) {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Zero");<br>}</code></td>
+        </tr>
+        <tr>
+            <td><code>else</code></td>
+            <td>Else statement</td>
+            <td><code>else {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Negative");<br>}</code></td>
+        </tr>
+        <tr>
+            <td><code>for</code></td>
+            <td>For loop</td>
+            <td><code>for (let i = 0; i < 5; i++) {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(i);<br>}</code></td>
+        </tr>
+        <tr>
+            <td><code>while</code></td>
+            <td>While loop</td>
+            <td><code>while (x > 0) {<br>&nbsp;&nbsp;&nbsp;&nbsp;x--;<br>}</code></td>
+        </tr>
+        <tr>
+            <td><code>break</code></td>
+            <td>Break out of a loop</td>
+            <td><code>break;</code></td>
+        </tr>
+        <tr>
+            <td><code>continue</code></td>
+            <td>Continue to the next iteration of a loop</td>
+            <td><code>continue;</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Functions</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Function</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>function</code></td>
+            <td>Define a function</td>
+            <td><code>function greet(name) {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(`Hello, ${name}!`);<br>}</code></td>
+        </tr>
+        <tr>
+            <td><code>return</code></td>
+            <td>Return a value from a function</td>
+            <td><code>return x + y;</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Events</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Event</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>onclick</code></td>
+            <td>Occurs when an element is clicked</td>
+            <td><code>element.onclick = function() {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Clicked!");<br>};</code></td>
+        </tr>
+        <tr>
+            <td><code>onmouseover</code></td>
+            <td>Occurs when the pointer is moved onto an element</td>
+            <td><code>element.onmouseover = function() {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Mouse over!");<br>};</code></td>
+        </tr>
+        <tr>
+            <td><code>onmouseout</code></td>
+            <td>Occurs when the pointer is moved out of an element</td>
+            <td><code>element.onmouseout = function() {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log("Mouse out!");<br>};</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>DOM Manipulation</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Method</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>getElementById</code></td>
+            <td>Find an element by ID</td>
+            <td><code>document.getElementById("myElement");</code></td>
+        </tr>
+        <tr>
+            <td><code>querySelector</code></td>
+            <td>Returns the first element that matches a CSS selector</td>
+            <td><code>document.querySelector(".myClass");</code></td>
+        </tr>
+        <tr>
+            <td><code>querySelectorAll</code></td>
+            <td>Returns all elements that match a CSS selector</td>
+            <td><code>document.querySelectorAll("p");</code></td>
+        </tr>
+        <tr>
+            <td><code>createElement</code></td>
+            <td>Create a new HTML element</td>
+            <td><code>document.createElement("div");</code></td>
+        </tr>
+        <tr>
+            <td><code>appendChild</code></td>
+            <td>Add a new child element</td>
+            <td><code>parent.appendChild(child);</code></td>
+        </tr>
+        <tr>
+            <td><code>removeChild</code></td>
+            <td>Remove a child element</td>
+            <td><code>parent.removeChild(child);</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>ES6 Features</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Feature</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>let</code></td>
+            <td>Declares a block-scoped variable</td>
+            <td><code>let x = 10;</code></td>
+        </tr>
+        <tr>
+            <td><code>const</code></td>
+            <td>Declares a block-scoped, read-only constant</td>
+            <td><code>const y = 20;</code></td>
+        </tr>
+        <tr>
+            <td><code>arrow function</code></td>
+            <td>Shorter syntax for function expressions</td>
+            <td><code>const add = (a, b) => a + b;</code></td>
+        </tr>
+        <tr>
+            <td><code>template literals</code></td>
+            <td>String literals allowing embedded expressions</td>
+            <td><code>const message = `Hello, ${name}!`;</code></td>
+        </tr>
+        <tr>
+            <td><code>default parameters</code></td>
+            <td>Allows setting default values for function parameters</td>
+            <td><code>function greet(name = "Guest") {<br>&nbsp;&nbsp;&nbsp;&nbsp;console.log(`Hello, ${name}!`);<br>}</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Promises</h2>
+<div class="example">
+    <code>
+        const myPromise = new Promise((resolve, reject) => {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;let success = true;<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;if (success) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;resolve("Promise resolved!");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;} else {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reject("Promise rejected!");<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        });<br><br>
+        myPromise.then((message) => {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log(message);<br>
+        }).catch((message) => {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;console.log(message);<br>
+        });
+    </code>
+</div>
+
+<h2>Async/Await</h2>
+<div class="example">
+    <code>
+        async function fetchData() {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;try {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let response = await fetch('https://api.example.com/data');<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;let data = await response.json();<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.log(data);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;} catch (error) {<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;console.error(error);<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+        }<br><br>
+        fetchData();
+    </code>
+</div>
+
+</body>
+</html>
