@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metasploit Cheat Sheet</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://cdn.pixabay.com/photo/2023/10/10/19/26/ai-generated-8307245_1280.png');
+            background-size: 1920x2700;
+            background-position: center;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table tr {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        code {
+            background-color: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+        .example {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
+    </style>
+    <script>
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function() {
+                        if (this.readyState == 4 && this.status == 200) {
+                            elmnt.innerHTML = this.responseText;
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    return;
+                }
+            }
+        }
+        document.addEventListener("DOMContentLoaded", includeHTML);
+    </script>
+</head>
+<body>
+
+<div w3-include-html="header.html"></div>
+    
+<h1>Metasploit Cheat Sheet</h1>
+<p><a href="/toc.html" style="color:#b40707">Back to TOC</a></p>
+
+<h2>Basic Commands</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>msfconsole</code></td>
+            <td>Start Metasploit console</td>
+        </tr>
+        <tr>
+            <td><code>search &lt;keyword&gt;</code></td>
+            <td>Search for exploits, payloads, auxiliary modules</td>
+        </tr>
+        <tr>
+            <td><code>info &lt;module&gt;</code></td>
+            <td>Display detailed information about a module</td>
+        </tr>
+        <tr>
+            <td><code>use &lt;module&gt;</code></td>
+            <td>Use a specific module</td>
+        </tr>
+        <tr>
+            <td><code>set &lt;option&gt; &lt;value&gt;</code></td>
+            <td>Set options for a module</td>
+        </tr>
+        <tr>
+            <td><code>show options</code></td>
+            <td>Show options for a module</td>
+        </tr>
+        <tr>
+            <td><code>show payloads</code></td>
+            <td>Show available payloads</td>
+        </tr>
+        <tr>
+            <td><code>show encoders</code></td>
+            <td>Show available encoders</td>
+        </tr>
+        <tr>
+            <td><code>show nops</code></td>
+            <td>Show available NOPS</td>
+        </tr>
+        <tr>
+            <td><code>show post</code></td>
+            <td>Show available post-exploitation modules</td>
+        </tr>
+        <tr>
+            <td><code>set payload &lt;payload&gt;</code></td>
+            <td>Set the payload to be used with the exploit</td>
+        </tr>
+        <tr>
+            <td><code>exploit</code></td>
+            <td>Run the exploit</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Networking Commands</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>ifconfig</code></td>
+            <td>Show network interfaces</td>
+        </tr>
+        <tr>
+            <td><code>route</code></td>
+            <td>Show routing table</td>
+        </tr>
+        <tr>
+            <td><code>route add &lt;subnet&gt; &lt;netmask&gt; &lt;gateway&gt;</code></td>
+            <td>Add a route</td>
+        </tr>
+        <tr>
+            <td><code>route remove &lt;subnet&gt; &lt;netmask&gt; &lt;gateway&gt;</code></td>
+            <td>Remove a route</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Database Commands</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>db_connect &lt;user&gt;:&lt;pass&gt;@&lt;host&gt;/&lt;database&gt;</code></td>
+            <td>Connect to the database</td>
+        </tr>
+        <tr>
+            <td><code>workspace -a &lt;workspace_name&gt;</code></td>
+            <td>Create a new workspace</td>
+        </tr>
+        <tr>
+            <td><code>workspace &lt;workspace_name&gt;</code></td>
+            <td>Switch between workspaces</td>
+        </tr>
+        <tr>
+            <td><code>hosts</code></td>
+            <td>List hosts in the database</td>
+        </tr>
+        <tr>
+            <td><code>services</code></td>
+            <td>List services in the database</td>
+        </tr>
+        <tr>
+            <td><code>vulns</code></td>
+            <td>List vulnerabilities in the database</td>
+        </tr>
+        <tr>
+            <td><code>notes</code></td>
+            <td>List notes in the database</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Meterpreter Commands</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>background</code></td>
+            <td>Background the current session</td>
+        </tr>
+        <tr>
+            <td><code>sessions -l</code></td>
+            <td>List all background sessions</td>
+        </tr>
+        <tr>
+            <td><code>sessions -i &lt;session_id&gt;</code></td>
+            <td>Interact with a background session</td>
+        </tr>
+        <tr>
+            <td><code>upload &lt;local_path&gt; &lt;remote_path&gt;</code></td>
+            <td>Upload a file to the victim machine</td>
+        </tr>
+        <tr>
+            <td><code>download &lt;remote_path&gt; &lt;local_path&gt;</code></td>
+            <td>Download a file from the victim machine</td>
+        </tr>
+        <tr>
+            <td><code>execute -f &lt;command&gt;</code></td>
+            <td>Run a shell command on the victim machine</td>
+        </tr>
+        <tr>
+            <td><code>screenshot</code></td>
+            <td>Take a screenshot of the victim machine's desktop</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Auxiliary Modules</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>use auxiliary/scanner/&lt;scanner_module&gt;</code></td>
+            <td>Use an auxiliary scanner</td>
+        </tr>
+        <tr>
+            <td><code>set RHOSTS &lt;target_ip_range&gt;</code></td>
+            <td>Set RHOSTS for scanners</td>
+        </tr>
+        <tr>
+            <td><code>run</code></td>
+            <td>Run an auxiliary module</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>Post-Exploitation Modules</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Command</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>use post/&lt;post_exploit_module&gt;</code></td>
+            <td>Use a post-exploitation module</td>
+        </tr>
+        <tr>
+            <td><code>set SESSION &lt;session_id&gt;</code></td>
+            <td>Set SESSION for post modules</td>
+        </tr>
+        <tr>
+            <td><code>run</code></td>
+            <td>Run a post module</td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
