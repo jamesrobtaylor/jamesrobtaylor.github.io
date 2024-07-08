@@ -53,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Make sections collapsible
     const headers = document.querySelectorAll('h2');
     headers.forEach(header => {
-        header.innerHTML += ' <span class="toggle-icon">[-]</span>';
+        header.innerHTML += ' <span class="toggle-icon">[+]</span>';
         header.style.cursor = 'pointer';
         header.nextElementSibling.style.display = 'none';
         header.addEventListener('click', function() {
