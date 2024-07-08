@@ -31,13 +31,24 @@ document.addEventListener('DOMContentLoaded', function() {
     // Run includeHTML first
     includeHTML();
 
-    // Search functionality
+    // Find the header element
+    const header = document.querySelector('h1');
+
+    // Create and insert search box below the header
     let searchBox = document.createElement('div');
     searchBox.innerHTML = `
         <input type="text" id="searchInput" placeholder="Search commands..." onkeyup="searchCheatSheet()">
         <button onclick="clearSearch()">Clear</button>
     `;
-    document.body.insertBefore(searchBox, document.body.firstChild);
+    header.parentNode.insertBefore(searchBox, header.nextSibling);
+
+    // Create and insert control buttons below the search box
+    let controlButtons = document.createElement('div');
+    controlButtons.innerHTML = `
+        <button onclick="collapseAll()">Collapse All</button>
+        <button onclick="expandAll()">Expand All</button>
+    `;
+    searchBox.parentNode.insertBefore(controlButtons, searchBox.nextSibling);
 
     // Make sections collapsible
     const headers = document.querySelectorAll('h2');
@@ -46,9 +57,7 @@ document.addEventListener('DOMContentLoaded', function() {
         header.style.cursor = 'pointer';
         header.nextElementSibling.style.display = 'block';
         header.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            content.style.display = content.style.display === 'none' ? 'block' : 'none';
-            this.querySelector('.toggle-icon').textContent = content.style.display === 'none' ? '[+]' : '[-]';
+            toggleSection(this);
         });
     });
 
@@ -62,6 +71,10 @@ document.addEventListener('DOMContentLoaded', function() {
             navigator.clipboard.writeText(codeElement.textContent).then(() => {
                 copyButton.textContent = 'Copied!';
                 setTimeout(() => copyButton.textContent = 'Copy', 2000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
+                copyButton.textContent = 'Failed to copy';
+                setTimeout(() => copyButton.textContent = 'Copy', 2000);
             });
         });
         codeElement.parentNode.insertBefore(copyButton, codeElement.nextSibling);
@@ -72,6 +85,28 @@ document.addEventListener('DOMContentLoaded', function() {
         hljs.highlightAll();
     }
 });
+
+function toggleSection(header) {
+    const content = header.nextElementSibling;
+    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+    header.querySelector('.toggle-icon').textContent = content.style.display === 'none' ? '[+]' : '[-]';
+}
+
+function collapseAll() {
+    const headers = document.querySelectorAll('h2');
+    headers.forEach(header => {
+        header.nextElementSibling.style.display = 'none';
+        header.querySelector('.toggle-icon').textContent = '[+]';
+    });
+}
+
+function expandAll() {
+    const headers = document.querySelectorAll('h2');
+    headers.forEach(header => {
+        header.nextElementSibling.style.display = 'block';
+        header.querySelector('.toggle-icon').textContent = '[-]';
+    });
+}
 
 function searchCheatSheet() {
     let input = document.getElementById('searchInput').value.toLowerCase();
