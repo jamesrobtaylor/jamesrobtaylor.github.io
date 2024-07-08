@@ -24,6 +24,14 @@
         body {
             background-color: var(--black);
             color: var(--white);
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .content-background {
+            background: url('https://images.unsplash.com/photo-1652717249447-293e8205c000?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center fixed;
+            background-size: cover;
         }
 
         header {
@@ -31,7 +39,7 @@
             top: 0;
             left: 0;
             right: 0;
-            background-color: rgba(0, 0, 0, 0.3);
+            background-color: rgba(0, 0, 0, 0.8);
             padding: 1rem;
             display: flex;
             justify-content: space-between;
@@ -154,6 +162,7 @@
 
         .section {
             padding: 2rem 1rem;
+            background-color: rgba(0, 0, 0, 0.7); /* Optional: Add a background color to sections for readability */
         }
 
         .section h2 {
@@ -184,6 +193,13 @@
 
         .reason:hover, .service:hover {
             transform: scale(1.05);
+        }
+
+        .reason h3, .service h3 {
+            color: #FFD700; /* Gold color */
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-align: center;
         }
 
         .icon {
@@ -279,7 +295,7 @@
 
         .faq-answer {
             background-color: var(--black);
-            color: var(--white);
+            color: var (--white);
             padding: 1rem;
             display: none;
             border-radius: 0 0 5px 5px;
@@ -332,133 +348,135 @@
         </a>
     </div>
 
-    <section id="about-us" class="about-us" data-aos="fade-up">
-        <h2>About V28 Cyber</h2>
-        <p>At V28 Cyber, we bring years of experience in security and compliance to safeguard your digital assets. Our team of experts has worked across a diverse range of industries, from professional services, finance and legal to technology, giving us a unique perspective on the evolving cyber threat landscape. We pride ourselves on our ability to deliver tailored, cutting-edge solutions that not only protect your business but also empower it to thrive in the digital age. With V28 Cyber, you're not just getting a service provider; you're partnering with a team that's passionate about your security and committed to your success.</p>
-    </section>
+    <div class="content-background">
+        <section id="about-us" class="about-us" data-aos="fade-up">
+            <h2>About V28 Cyber</h2>
+            <p>At V28 Cyber, we bring years of experience in security and compliance to safeguard your digital assets. Our team of experts has worked across a diverse range of industries, from professional services, finance and legal to technology, giving us a unique perspective on the evolving cyber threat landscape. We pride ourselves on our ability to deliver tailored, cutting-edge solutions that not only protect your business but also empower it to thrive in the digital age. With V28 Cyber, you're not just getting a service provider; you're partnering with a team that's passionate about your security and committed to your success.</p>
+        </section>
 
-    <hr>
-    
-    <section id="why-choose-us" class="section">
-        <h2>Why Choose Us</h2>
-        <div class="why-choose-us">
-            <div class="reason">
-                <i class="fas fa-lightbulb icon"></i>
-                <h3>Expertise</h3>
-                <p>Our team of cyber security experts brings years of experience to protect your digital assets.</p>
-            </div>
-            <div class="reason">
-                <i class="fas fa-cogs icon"></i>
-                <h3>Customised Solutions</h3>
-                <p>We tailor our services to meet your specific needs and security requirements.</p>
-            </div>
-            <div class="reason">
-                <i class="fas fa-headset icon"></i>
-                <h3>24/7 Support</h3>
-                <p>Round-the-clock monitoring and support to ensure your systems are always protected.</p>
-            </div>
-        </div>
-    </section>
-
-    <hr>
-
-    <section id="services" class="section">
-        <h2>Our Services</h2>
-        <div class="services">
-            <div class="service">
-            <div>
-                <i class="fas fa-car icon"></i>
-                <h3>Cyber 'MOT'</h3>
-                <p>Comprehensive assessment of your cyber security posture.</p>
-            </div>
-                <a href="#callback" class="enquire-btn">Enquire</a>
-            </div>
-            <div class="service">
-            <div>
-                <i class="fas fa-shield-alt icon"></i>
-                <h3>MS365 Hardening</h3>
-                <p>Review and enhance the security of your Microsoft 365 environment.</p>
-            </div>
-                <a href="#callback" class="enquire-btn">Enquire</a>
-            </div>
-            <div class="service">
-            <div>
-                <i class="fas fa-tasks icon"></i>
-                <h3>Managed MS365</h3>
-                <p>Ongoing management and security for your Microsoft 365 suite.</p>
-            </div>
-                <a href="#callback" class="enquire-btn">Enquire</a>
-            </div>
-            <div class="service">
-            <div>
-                <i class="fas fa-certificate icon"></i>
-                <h3>Cyber Essentials Consultancy</h3>
-                <p>Guide you through the Cyber Essentials certification process.</p>
-            </div>
-                <a href="#callback" class="enquire-btn">Enquire</a>
-            </div>
-            <div class="service">
-            <div>
-                <i class="fas fa-users icon"></i>
-                <h3>Awareness Training</h3>
-                <p>Educate and inform your team on best practices for cyber security.</p>
-            </div>
-                <a href="#callback" class="enquire-btn">Enquire</a>
-            </div>
-            <div class="service">
-            <div>
-                <i class="fas fa-user-secret icon"></i>
-                <h3>Penetration Testing</h3>
-                <p>On-site or remote penetration testing and reporting services.</p>
-            </div>
-                <a href="#callback" class="enquire-btn">Enquire</a>
-            </div>
-        </div>
-    </section>
-
-    <hr>
+        <hr>
         
-    <section id="faq" class="faq" data-aos="fade-up">
-        <h2>Frequently Asked Questions</h2>
-        <div class="faq-item">
-            <div class="faq-question">What is Cyber Essentials? <i class="fas fa-plus"></i></div>
-            <div class="faq-answer">Cyber Essentials is a UK government-backed scheme that helps organisations protect themselves against common cyber attacks. It provides a clear statement of the basic controls all organisations should implement to mitigate the risk from common internet-based threats.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">How often should we conduct a Cyber 'MOT'? <i class="fas fa-plus"></i></div>
-            <div class="faq-answer">We recommend conducting a Cyber 'MOT' at least annually. However, for organisations in high-risk industries or those experiencing rapid growth, more frequent assessments may be beneficial, such as quarterly. We provide discounted subscription pricing for ongoing engagements.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">What does MS365 hardening involve? <i class="fas fa-plus"></i></div>
-            <div class="faq-answer">MS365 hardening involves implementing security best practices to strengthen your Microsoft 365 environment. This includes configuring multi-factor authentication, setting up data loss prevention policies, enabling advanced threat protection, and more.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">How long does a typical penetration test take? <i class="fas fa-plus"></i></div>
-            <div class="faq-answer">The duration of a penetration test can vary depending on the scope and complexity of your systems. Typically, a standard penetration test can take anywhere from a few days to a couple of weeks. We'll provide a more accurate timeline after assessing your specific needs.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">How do you provide a 24/7 service? <i class="fas fa-plus"></i></div>
-            <div class="faq-answer">V28 Cyber has offices in the UK and India which allows us to provide a round-the-clock service to our clients for ongoing monitoring engagements. All of our cybersecurity professionals are fully vetted, qualified and highly experienced in their field of expertise.</div>
-        </div>
-        <div class="faq-item">
-            <div class="faq-question">How do you price your services? <i class="fas fa-plus"></i></div>
-            <div class="faq-answer">We understand pricing transparency is important and aim to provide a fixed fee up front for all of our services based on time spent and complexity of your infrastructure. Contact us for a bespoke quote.</div>
-        </div>
-    </section>
+        <section id="why-choose-us" class="section">
+            <h2>Why Choose Us</h2>
+            <div class="why-choose-us">
+                <div class="reason">
+                    <i class="fas fa-lightbulb icon"></i>
+                    <h3>Expertise</h3>
+                    <p>Our team of cyber security experts brings years of experience to protect your digital assets.</p>
+                </div>
+                <div class="reason">
+                    <i class="fas fa-cogs icon"></i>
+                    <h3>Customised Solutions</h3>
+                    <p>We tailor our services to meet your specific needs and security requirements.</p>
+                </div>
+                <div class="reason">
+                    <i class="fas fa-headset icon"></i>
+                    <h3>24/7 Support</h3>
+                    <p>Round-the-clock monitoring and support to ensure your systems are always protected.</p>
+                </div>
+            </div>
+        </section>
 
-    <hr>
+        <hr>
 
-    <section id="callback" class="section">
-        <h2>Schedule a Callback</h2>
-        <form class="callback-form">
-            <input type="text" placeholder="Name" required>
-            <input type="email" placeholder="Email" required>
-            <input type="date" required>
-            <input type="time" required>
-            <textarea placeholder="Message" rows="4" required></textarea>
-            <button type="submit">Request Callback</button>
-        </form>
-    </section>
+        <section id="services" class="section">
+            <h2>Our Services</h2>
+            <div class="services">
+                <div class="service">
+                <div>
+                    <i class="fas fa-car icon"></i>
+                    <h3>Cyber 'MOT'</h3>
+                    <p>Comprehensive assessment of your cyber security posture.</p>
+                </div>
+                    <a href="#callback" class="enquire-btn">Enquire</a>
+                </div>
+                <div class="service">
+                <div>
+                    <i class="fas fa-shield-alt icon"></i>
+                    <h3>MS365 Hardening</h3>
+                    <p>Enhance the security of your Microsoft 365 environment.</p>
+                </div>
+                    <a href="#callback" class="enquire-btn">Enquire</a>
+                </div>
+                <div class="service">
+                <div>
+                    <i class="fas fa-tasks icon"></i>
+                    <h3>Managed MS365</h3>
+                    <p>Ongoing management and security for your Microsoft 365 suite.</p>
+                </div>
+                    <a href="#callback" class="enquire-btn">Enquire</a>
+                </div>
+                <div class="service">
+                <div>
+                    <i class="fas fa-certificate icon"></i>
+                    <h3>Cyber Essentials Consultancy</h3>
+                    <p>Guide you through the Cyber Essentials certification process.</p>
+                </div>
+                    <a href="#callback" class="enquire-btn">Enquire</a>
+                </div>
+                <div class="service">
+                <div>
+                    <i class="fas fa-users icon"></i>
+                    <h3>Awareness Training</h3>
+                    <p>Educate your team on best practices for cyber security.</p>
+                </div>
+                    <a href="#callback" class="enquire-btn">Enquire</a>
+                </div>
+                <div class="service">
+                <div>
+                    <i class="fas fa-user-secret icon"></i>
+                    <h3>Penetration Testing</h3>
+                    <p>On-site or remote penetration testing and reporting services.</p>
+                </div>
+                    <a href="#callback" class="enquire-btn">Enquire</a>
+                </div>
+            </div>
+        </section>
+
+        <hr>
+            
+        <section id="faq" class="faq" data-aos="fade-up">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">What is Cyber Essentials? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">Cyber Essentials is a UK government-backed scheme that helps organisations protect themselves against common cyber attacks. It provides a clear statement of the basic controls all organisations should implement to mitigate the risk from common internet-based threats.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How often should we conduct a Cyber 'MOT'? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">We recommend conducting a Cyber 'MOT' at least annually. However, for organisations in high-risk industries or those experiencing rapid growth, more frequent assessments may be beneficial, such as quarterly. We provide discounted subscription pricing for ongoing engagements.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">What does MS365 hardening involve? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">MS365 hardening involves implementing security best practices to strengthen your Microsoft 365 environment. This includes configuring multi-factor authentication, setting up data loss prevention policies, enabling advanced threat protection, and more.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How long does a typical penetration test take? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">The duration of a penetration test can vary depending on the scope and complexity of your systems. Typically, a standard penetration test can take anywhere from a few days to a couple of weeks. We'll provide a more accurate timeline after assessing your specific needs.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do you provide a 24/7 service? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">V28 Cyber has offices in the UK and India which allows us to provide a round-the-clock service to our clients for ongoing monitoring engagements. All of our cybersecurity professionals are fully vetted, qualified and highly experienced in their field of expertise.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How do you price your services? <i class="fas fa-plus"></i></div>
+                <div class="faq-answer">We understand pricing transparency is important and aim to provide a fixed fee up front for all of our services based on time spent and complexity of your infrastructure. Contact us for a bespoke quote.</div>
+            </div>
+        </section>
+
+        <hr>
+        
+        <section id="callback" class="section">
+            <h2>Schedule a Callback</h2>
+            <form class="callback-form">
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <input type="date" required>
+                <input type="time" required>
+                <textarea placeholder="Message" rows="4" required></textarea>
+                <button type="submit">Request Callback</button>
+            </form>
+        </section>
+    </div>
 
     <footer>
         <p>V28 Cyber &copy; <span id="year"></span></p>
