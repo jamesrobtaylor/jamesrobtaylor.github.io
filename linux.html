@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Linux Cheat Sheet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="cheatsheet-utils.js"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -20,6 +23,7 @@
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 20px;
+            table-layout: fixed;
         }
 
         table tr {
@@ -29,14 +33,21 @@
             padding: 10px;
             border: 1px solid #ddd;
             text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
         }
         th {
             background-color: #f2f2f2;
+            th:nth-child(1), td:nth-child(1) { width: 40%; }
+            th:nth-child(2), td:nth-child(2) { width: 40%; }
+            th:nth-child(3), td:nth-child(3) { width: 40%; }
         }
         code {
             background-color: #e4e4e4;
             padding: 2px 4px;
             border-radius: 4px;
+            font-family: monospace;
+            white-space: nowrap;
         }
         .example {
             background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
@@ -44,31 +55,16 @@
             border: 1px solid #ddd;
             margin-bottom: 20px;
         }
-    </style>
-         <script>
-        function includeHTML() {
-            var z, i, elmnt, file, xhttp;
-            z = document.getElementsByTagName("*");
-            for (i = 0; i < z.length; i++) {
-                elmnt = z[i];
-                file = elmnt.getAttribute("w3-include-html");
-                if (file) {
-                    xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function() {
-                        if (this.readyState == 4 && this.status == 200) {
-                            elmnt.innerHTML = this.responseText;
-                            elmnt.removeAttribute("w3-include-html");
-                            includeHTML();
-                        }
-                    }
-                    xhttp.open("GET", file, true);
-                    xhttp.send();
-                    return;
-                }
-            }
+        .copy-button {
+            margin-left: 10px;
+            padding: 2px 5px;
+            font-size: 12px;
         }
-        document.addEventListener("DOMContentLoaded", includeHTML);
-    </script>
+        .toggle-icon {
+            font-size: 14px;
+            margin-left: 10px;
+        }
+    </style>
 </head>
 <body>
 
@@ -82,44 +78,54 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>pwd</code></td>
             <td>Print working directory</td>
+            <td><code>pwd</code></td>
         </tr>
         <tr>
             <td><code>ls</code></td>
             <td>List directory contents</td>
+            <td><code>ls</code></td>
         </tr>
         <tr>
             <td><code>cd [directory]</code></td>
             <td>Change directory</td>
+            <td><code>cd /home/user/Documents</code></td>
         </tr>
         <tr>
             <td><code>cp [source] [destination]</code></td>
             <td>Copy files or directories</td>
+            <td><code>cp file.txt /home/user/</code></td>
         </tr>
         <tr>
             <td><code>mv [source] [destination]</code></td>
             <td>Move or rename files or directories</td>
+            <td><code>mv oldname.txt newname.txt</code></td>
         </tr>
         <tr>
             <td><code>rm [file]</code></td>
             <td>Remove files</td>
+            <td><code>rm file.txt</code></td>
         </tr>
         <tr>
             <td><code>touch [file]</code></td>
             <td>Create a new empty file</td>
+            <td><code>touch newfile.txt</code></td>
         </tr>
         <tr>
             <td><code>mkdir [directory]</code></td>
             <td>Create new directory</td>
+            <td><code>mkdir newdirectory</code></td>
         </tr>
         <tr>
             <td><code>rmdir [directory]</code></td>
             <td>Remove empty directory</td>
+            <td><code>rmdir olddirectory</code></td>
         </tr>
     </tbody>
 </table>
@@ -130,36 +136,44 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>cat [file]</code></td>
             <td>Concatenate and display file content</td>
+            <td><code>cat file.txt</code></td>
         </tr>
         <tr>
             <td><code>less [file]</code></td>
             <td>View file content page by page</td>
+            <td><code>less file.txt</code></td>
         </tr>
         <tr>
             <td><code>more [file]</code></td>
             <td>View file content with scrolling</td>
+            <td><code>more file.txt</code></td>
         </tr>
         <tr>
             <td><code>head [file]</code></td>
             <td>View the first 10 lines of a file</td>
+            <td><code>head file.txt</code></td>
         </tr>
         <tr>
             <td><code>tail [file]</code></td>
             <td>View the last 10 lines of a file</td>
+            <td><code>tail file.txt</code></td>
         </tr>
         <tr>
             <td><code>nano [file]</code></td>
             <td>Edit files with Nano editor</td>
+            <td><code>nano file.txt</code></td>
         </tr>
         <tr>
             <td><code>vi [file]</code></td>
             <td>Edit files with Vi editor</td>
+            <td><code>vi file.txt</code></td>
         </tr>
     </tbody>
 </table>
@@ -170,16 +184,19 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>chmod [mode] [file]</code></td>
             <td>Change file permissions</td>
+            <td><code>chmod 755 script.sh</code></td>
         </tr>
         <tr>
             <td><code>chown [owner][:group] [file]</code></td>
             <td>Change file owner and group</td>
+            <td><code>chown user:group file.txt</code></td>
         </tr>
     </tbody>
 </table>
@@ -190,24 +207,29 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>find [directory] -name [filename]</code></td>
             <td>Find files by name</td>
+            <td><code>find /home -name "*.txt"</code></td>
         </tr>
         <tr>
             <td><code>grep [pattern] [file]</code></td>
             <td>Search for a pattern within files</td>
+            <td><code>grep "search term" file.txt</code></td>
         </tr>
         <tr>
             <td><code>locate [name]</code></td>
             <td>Find files by name using a database</td>
+            <td><code>locate file.txt</code></td>
         </tr>
         <tr>
             <td><code>which [command]</code></td>
             <td>Show the path of a command</td>
+            <td><code>which python</code></td>
         </tr>
     </tbody>
 </table>
@@ -218,40 +240,49 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>uname -a</code></td>
             <td>Show all system information</td>
+            <td><code>uname -a</code></td>
         </tr>
         <tr>
             <td><code>df -h</code></td>
             <td>Show disk usage in human-readable format</td>
+            <td><code>df -h</code></td>
         </tr>
         <tr>
             <td><code>du -sh [directory]</code></td>
             <td>Show directory size</td>
+            <td><code>du -sh /home/user/</code></td>
         </tr>
         <tr>
             <td><code>top</code></td>
             <td>Display real-time system processes</td>
+            <td><code>top</code></td>
         </tr>
         <tr>
             <td><code>free -h</code></td>
             <td>Show free and used memory</td>
+            <td><code>free -h</code></td>
         </tr>
         <tr>
             <td><code>uptime</code></td>
             <td>Show how long the system has been running</td>
+            <td><code>uptime</code></td>
         </tr>
         <tr>
             <td><code>who</code></td>
             <td>Show who is logged on</td>
+            <td><code>who</code></td>
         </tr>
         <tr>
             <td><code>dmesg</code></td>
             <td>Display kernel message buffer</td>
+            <td><code>dmesg</code></td>
         </tr>
     </tbody>
 </table>
@@ -262,44 +293,54 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>ip a</code></td>
             <td>Show IP addresses and network interfaces</td>
+            <td><code>ip a</code></td>
         </tr>
         <tr>
             <td><code>ping [host]</code></td>
             <td>Send ICMP ECHO_REQUEST to network hosts</td>
+            <td><code>ping google.com</code></td>
         </tr>
         <tr>
             <td><code>netstat -tuln</code></td>
             <td>Show listening ports</td>
+            <td><code>netstat -tuln</code></td>
         </tr>
         <tr>
             <td><code>ss -tuln</code></td>
             <td>Show listening ports (alternative to netstat)</td>
+            <td><code>ss -tuln</code></td>
         </tr>
         <tr>
             <td><code>curl [url]</code></td>
             <td>Transfer data from or to a server</td>
+            <td><code>curl http://example.com</code></td>
         </tr>
         <tr>
             <td><code>wget [url]</code></td>
             <td>Download files from the web</td>
+            <td><code>wget http://example.com/file.zip</code></td>
         </tr>
         <tr>
             <td><code>scp [source] [user@host:destination]</code></td>
             <td>Secure copy over SSH</td>
+            <td><code>scp file.txt user@remotehost:/home/user/</code></td>
         </tr>
         <tr>
             <td><code>ssh [user@host]</code></td>
             <td>Connect to a remote host via SSH</td>
+            <td><code>ssh user@remotehost</code></td>
         </tr>
         <tr>
             <td><code>su - [user]</code></td>
             <td>Switch User e.g. su - root</td>
+            <td><code>su - root</code></td>
         </tr>
     </tbody>
 </table>
@@ -310,36 +351,44 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>apt update</code></td>
             <td>Update package lists (Debian/Ubuntu)</td>
+            <td><code>apt update</code></td>
         </tr>
         <tr>
             <td><code>apt upgrade</code></td>
             <td>Upgrade all packages (Debian/Ubuntu)</td>
+            <td><code>apt upgrade</code></td>
         </tr>
         <tr>
             <td><code>apt install [package]</code></td>
             <td>Install a package (Debian/Ubuntu)</td>
+            <td><code>apt install nginx</code></td>
         </tr>
         <tr>
             <td><code>yum update</code></td>
             <td>Update package lists (RHEL/CentOS)</td>
+            <td><code>yum update</code></td>
         </tr>
         <tr>
             <td><code>yum install [package]</code></td>
             <td>Install a package (RHEL/CentOS)</td>
+            <td><code>yum install httpd</code></td>
         </tr>
         <tr>
             <td><code>dnf update</code></td>
             <td>Update package lists (Fedora)</td>
+            <td><code>dnf update</code></td>
         </tr>
         <tr>
             <td><code>dnf install [package]</code></td>
             <td>Install a package (Fedora)</td>
+            <td><code>dnf install nginx</code></td>
         </tr>
     </tbody>
 </table>
@@ -350,28 +399,34 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>mount [device] [mountpoint]</code></td>
             <td>Mount a file system</td>
+            <td><code>mount /dev/sda1 /mnt</code></td>
         </tr>
         <tr>
             <td><code>umount [mountpoint]</code></td>
             <td>Unmount a file system</td>
+            <td><code>umount /mnt</code></td>
         </tr>
         <tr>
             <td><code>fdisk -l</code></td>
             <td>List disk partitions</td>
+            <td><code>fdisk -l</code></td>
         </tr>
         <tr>
             <td><code>mkfs.ext4 [device]</code></td>
             <td>Format a partition with ext4</td>
+            <td><code>mkfs.ext4 /dev/sda1</code></td>
         </tr>
         <tr>
             <td><code>fsck [device]</code></td>
             <td>Check and repair a file system</td>
+            <td><code>fsck /dev/sda1</code></td>
         </tr>
     </tbody>
 </table>
@@ -382,24 +437,29 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>sh [script]</code></td>
             <td>Run a shell script</td>
+            <td><code>sh script.sh</code></td>
         </tr>
         <tr>
             <td><code>bash [script]</code></td>
             <td>Run a bash script</td>
+            <td><code>bash script.sh</code></td>
         </tr>
         <tr>
             <td><code>crontab -e</code></td>
             <td>Edit user crontab</td>
+            <td><code>crontab -e</code></td>
         </tr>
         <tr>
             <td><code>at [time]</code></td>
             <td>Schedule a job at a specific time</td>
+            <td><code>at 5pm</code></td>
         </tr>
     </tbody>
 </table>
@@ -410,20 +470,24 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>echo $VARIABLE</code></td>
             <td>Print value of a variable</td>
+            <td><code>echo $PATH</code></td>
         </tr>
         <tr>
             <td><code>export VARIABLE=value</code></td>
             <td>Set an environment variable</td>
+            <td><code>export PATH=/usr/local/bin:$PATH</code></td>
         </tr>
         <tr>
             <td><code>env</code></td>
             <td>List all environment variables</td>
+            <td><code>env</code></td>
         </tr>
     </tbody>
 </table>
@@ -434,28 +498,34 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>useradd [user]</code></td>
             <td>Add a new user</td>
+            <td><code>useradd newuser</code></td>
         </tr>
         <tr>
             <td><code>passwd [user]</code></td>
             <td>Change user password</td>
+            <td><code>passwd newuser</code></td>
         </tr>
         <tr>
             <td><code>userdel [user]</code></td>
             <td>Delete a user</td>
+            <td><code>userdel olduser</code></td>
         </tr>
         <tr>
             <td><code>groupadd [group]</code></td>
             <td>Add a new group</td>
+            <td><code>groupadd newgroup</code></td>
         </tr>
         <tr>
             <td><code>usermod -aG [group] [user]</code></td>
             <td>Add user to group</td>
+            <td><code>usermod -aG sudo newuser</code></td>
         </tr>
     </tbody>
 </table>
@@ -466,32 +536,39 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>tar -cvf [archive.tar] [directory]</code></td>
             <td>Create a tar archive</td>
+            <td><code>tar -cvf archive.tar /home/user/</code></td>
         </tr>
         <tr>
             <td><code>tar -xvf [archive.tar]</code></td>
             <td>Extract a tar archive</td>
+            <td><code>tar -xvf archive.tar</code></td>
         </tr>
         <tr>
             <td><code>gzip [file]</code></td>
             <td>Compress a file with gzip</td>
+            <td><code>gzip file.txt</code></td>
         </tr>
         <tr>
             <td><code>gunzip [file.gz]</code></td>
             <td>Decompress a gzip file</td>
+            <td><code>gunzip file.txt.gz</code></td>
         </tr>
         <tr>
             <td><code>zip [archive.zip] [file]</code></td>
             <td>Create a zip archive</td>
+            <td><code>zip archive.zip file.txt</code></td>
         </tr>
         <tr>
             <td><code>unzip [archive.zip]</code></td>
             <td>Extract a zip archive</td>
+            <td><code>unzip archive.zip</code></td>
         </tr>
     </tbody>
 </table>
@@ -502,36 +579,44 @@
         <tr>
             <th>Command</th>
             <th>Description</th>
+            <th>Example</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td><code>alias [alias_name]='[command]'</code></td>
             <td>Create a command alias</td>
+            <td><code>alias ll='ls -la'</code></td>
         </tr>
         <tr>
             <td><code>history</code></td>
             <td>Show command history</td>
+            <td><code>history</code></td>
         </tr>
         <tr>
             <td><code>!!</code></td>
             <td>Run the last command again</td>
+            <td><code>!!</code></td>
         </tr>
         <tr>
             <td><code>man [command]</code></td>
             <td>Show the manual for a command</td>
+            <td><code>man ls</code></td>
         </tr>
         <tr>
             <td><code>echo [text]</code></td>
             <td>Print text to the terminal</td>
+            <td><code>echo "Hello, World!"</code></td>
         </tr>
         <tr>
             <td><code>date</code></td>
             <td>Show current date and time</td>
+            <td><code>date</code></td>
         </tr>
         <tr>
             <td><code>cal</code></td>
             <td>Show calendar</td>
+            <td><code>cal</code></td>
         </tr>
     </tbody>
 </table>
