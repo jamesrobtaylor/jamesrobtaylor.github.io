@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hacking Tool Cheat Sheet</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/styles/default.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+    <script src="cheatsheet-utils.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-image: url('https://images.unsplash.com/photo-1675351085230-ab39b2289ff4?q=80&w=1864&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+            background-size: cover;
+            background-position: center;
+        }
+        h1, h2, h3 {
+            color: #ffffff;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            table-layout: fixed;
+        }
+        table tr {
+            background-color: rgba(255, 255, 255, 0.9); /* White with 90% opacity */
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        th:nth-child(1), td:nth-child(1) { width: 30%; }
+        th:nth-child(2), td:nth-child(2) { width: 40%; }
+        th:nth-child(3), td:nth-child(3) { width: 30%; }
+        code {
+            background-color: #e4e4e4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Hacking Tool Cheat Sheet</h1>
+
+<h2>1. Information Gathering</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Nmap</code></td>
+            <td>Network discovery and security auditing.</td>
+            <td><code>nmap -sP 192.168.1.0/24</code></td>
+        </tr>
+        <tr>
+            <td><code>Wireshark</code></td>
+            <td>Network protocol analyzer.</td>
+            <td>Open Wireshark GUI and start capturing on desired interface.</td>
+        </tr>
+        <tr>
+            <td><code>Recon-ng</code></td>
+            <td>Web-based reconnaissance framework.</td>
+            <td><code>recon-ng</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>2. Vulnerability Scanning</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Nessus</code></td>
+            <td>Vulnerability scanner.</td>
+            <td>Use the Nessus web interface to scan network ranges.</td>
+        </tr>
+        <tr>
+            <td><code>OpenVAS</code></td>
+            <td>Open-source vulnerability scanner.</td>
+            <td><code>openvas-setup</code></td>
+        </tr>
+        <tr>
+            <td><code>Nikto</code></td>
+            <td>Web server scanner.</td>
+            <td><code>nikto -h http://example.com</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>3. Exploitation</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Metasploit</code></td>
+            <td>Penetration testing framework.</td>
+            <td><code>msfconsole</code></td>
+        </tr>
+        <tr>
+            <td><code>BeEF (Browser Exploitation Framework)</code></td>
+            <td>Exploit web browsers.</td>
+            <td><code>./beef</code></td>
+        </tr>
+        <tr>
+            <td><code>SQLmap</code></td>
+            <td>Automated SQL injection tool.</td>
+            <td><code>sqlmap -u "http://example.com/vulnerable.php?id=1"</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>4. Password Cracking</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>John the Ripper</code></td>
+            <td>Password cracker.</td>
+            <td><code>john --wordlist=password.lst hashes.txt</code></td>
+        </tr>
+        <tr>
+            <td><code>Hydra</code></td>
+            <td>Brute force login cracker.</td>
+            <td><code>hydra -l admin -P password.lst ftp://192.168.1.100</code></td>
+        </tr>
+        <tr>
+            <td><code>Hashcat</code></td>
+            <td>Advanced password recovery.</td>
+            <td><code>hashcat -m 0 -a 0 -o cracked.txt hashes.txt wordlist.txt</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>5. Wireless Attacks</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Aircrack-ng</code></td>
+            <td>Wi-Fi security auditing.</td>
+            <td><code>aircrack-ng -w wordlist.txt -b 00:11:22:33:44:55 capture.cap</code></td>
+        </tr>
+        <tr>
+            <td><code>Reaver</code></td>
+            <td>WPS PIN brute force tool.</td>
+            <td><code>reaver -i mon0 -b 00:11:22:33:44:55</code></td>
+        </tr>
+        <tr>
+            <td><code>Kismet</code></td>
+            <td>Wireless network detector.</td>
+            <td><code>kismet</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>6. Post Exploitation</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Empire</code></td>
+            <td>Post-exploitation framework.</td>
+            <td><code>./empire</code></td>
+        </tr>
+        <tr>
+            <td><code>Mimikatz</code></td>
+            <td>Windows post-exploitation tool.</td>
+            <td><code>mimikatz</code></td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>7. Social Engineering</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Social-Engineer Toolkit (SET)</code></td>
+            <td>Social engineering attacks.</td>
+            <td><code>setoolkit</code></td>
+        </tr>
+        <tr>
+            <td><code>Maltego</code></td>
+            <td>Open-source intelligence and forensics.</td>
+            <td>Open Maltego GUI.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>8. Web Application Testing</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>OWASP ZAP (Zed Attack Proxy)</code></td>
+            <td>Web application security scanner.</td>
+            <td><code>zap.sh</code></td>
+        </tr>
+        <tr>
+            <td><code>Burp Suite</code></td>
+            <td>Web vulnerability scanner.</td>
+            <td>Open Burp Suite GUI.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2>9. Miscellaneous Tools</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tool</th>
+            <th>Description</th>
+            <th>Example</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><code>Netcat</code></td>
+            <td>Network debugging and exploration.</td>
+            <td><code>nc -lvp 4444</code></td>
+        </tr>
+        <tr>
+            <td><code>Proxychains</code></td>
+            <td>Redirect network connections through proxy servers.</td>
+            <td><code>proxychains nmap -sT 192.168.1.0/24</code></td>
+        </tr>
+        <tr>
+            <td><code>Tor</code></td>
+            <td>Anonymity online.</td>
+            <td><code>tor</code></td>
+        </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
